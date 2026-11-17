@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mitangnotts | Professional Fresh Cream Cakes Nottingham</title>
+    <!-- Tailwind CSS v4 -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fff9f9;
+            color: #2d2d2d;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-[#fff9f9] min-h-screen flex flex-col selection:bg-rose-100 selection:text-rose-900">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-[#7c2d12] text-rose-50 text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide">
+        <span data-en="✨ Handcrafted Fresh Cream Cakes in Nottingham • Order before 1pm for next-day collection & local delivery ✨" 
+              data-cn="✨ 英国诺丁汉手工鲜奶油蛋糕 • 每日新鲜现做，下午1点前下单支持次日自提与同城配送 ✨">
+            ✨ Handcrafted Fresh Cream Cakes in Nottingham • Order before 1pm for next-day collection & local delivery ✨
+        </span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-rose-100 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <img src="logo_3.jpg" alt="mitangnotts logo" class="w-12 h-12 rounded-full object-cover shadow-xs border border-rose-200 group-hover:scale-105 transition-transform">
+                <div>
+                    <span class="text-xl sm:text-2xl font-serif font-bold text-stone-800 tracking-tight">mitangnotts</span>
+                    <span class="block text-[10px] text-rose-600 font-medium tracking-widest uppercase">Nottingham Fresh Cream Cakes</span>
+                </div>
+            </a>
+
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-full border border-rose-200 text-xs font-semibold text-rose-800 bg-rose-50 hover:bg-rose-100 transition-colors flex items-center space-x-1">
+                    <span id="langLabel">中文 / EN</span>
+                </button>
+                <button onclick="toggleCartDrawer(true)" class="relative p-2.5 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-800 transition-colors flex items-center space-x-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    <span id="cartBadge" class="absolute -top-1 -right-1 bg-rose-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-xs">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-16 sm:py-24 bg-gradient-to-b from-rose-50/80 to-transparent">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="inline-block py-1 px-4 rounded-full bg-rose-100/80 text-rose-800 text-xs font-semibold tracking-wider uppercase mb-4" data-en="Artisanal Patisserie in Nottingham" data-cn="英国诺丁汉高端手工鲜奶油蛋糕工作室">Artisanal Patisserie in Nottingham</span>
+            <h1 class="text-4xl sm:text-6xl font-serif font-bold text-stone-900 tracking-tight mb-6">
+                <span data-en="Light, Fresh & Beautiful Cream Cakes" data-cn="轻盈细腻 · 纯正动物奶油 · 订制心意">Light, Fresh & Beautiful Cream Cakes</span>
+            </h1>
+            <p class="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-normal leading-relaxed mb-8" data-en="Whipped 100% pure dairy fresh cream with ultra-soft chiffon sponges. Low sugar, exquisite texture, freshly crafted in Nottingham." data-cn="采用100%纯动物新鲜奶油，搭配入口即化的松软戚风蛋糕坯。低糖绵密，匠心手作，诺丁汉同城贴心配送。">Whipped 100% pure dairy fresh cream with ultra-soft chiffon sponges.</p>
+            
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
+                <button onclick="filterCategory('all')" class="cat-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all bg-rose-900 text-white shadow-sm" data-en="All Cakes" data-cn="全部蛋糕">All Cakes</button>
+                <button onclick="filterCategory('signature')" class="cat-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all bg-white text-stone-700 hover:bg-rose-50 border border-rose-200" data-en="Signature & Celebration" data-cn="经典与特色奶油蛋糕">Signature & Celebration</button>
+                <button onclick="filterCategory('nextday')" class="cat-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all bg-white text-stone-700 hover:bg-rose-50 border border-rose-200" data-en="Next Day Cakes" data-cn="次日达惊喜蛋糕">Next Day Cakes</button>
+                <button onclick="filterCategory('fruit')" class="cat-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all bg-white text-stone-700 hover:bg-rose-50 border border-rose-200" data-en="Fruit Cakes" data-cn="新鲜水果蛋糕">Fruit Cakes</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow w-full">
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col">
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/20 hover:bg-black/30 text-white flex items-center justify-center transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div id="modalContent" class="overflow-y-auto p-6 sm:p-8 space-y-6"></div>
+        </div>
+    </div>
+
+    <!-- Shopping Bag Drawer -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs hidden transition-opacity">
+        <div class="absolute inset-y-0 right-0 max-w-md w-full bg-white shadow-2xl flex flex-col transform transition-transform">
+            <div class="p-6 border-b border-stone-100 flex items-center justify-between bg-rose-50/50">
+                <h2 class="text-xl font-serif font-bold text-stone-900" data-en="Your Shopping Bag" data-cn="您的购物袋">Your Shopping Bag</h2>
+                <button onclick="toggleCartDrawer(false)" class="p-2 rounded-full hover:bg-stone-200/60 text-stone-600 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="cartItemsContainer" class="flex-grow overflow-y-auto p-6 space-y-4 divide-y divide-stone-100"></div>
+            <div class="p-6 border-t border-stone-100 bg-stone-50/50 space-y-4">
+                <div class="flex items-center justify-between text-base font-semibold text-stone-900">
+                    <span data-en="Subtotal:" data-cn="小计：">Subtotal:</span>
+                    <span id="cartSubtotal" class="text-rose-700 text-xl font-serif">£0.00</span>
+                </div>
+                <button onclick="openCheckout()" class="w-full py-3.5 px-6 rounded-2xl bg-rose-700 hover:bg-rose-800 text-white font-semibold shadow-md transition-all flex items-center justify-center space-x-2" data-en="Proceed to Secure Checkout" data-cn="前往专业收银台结算">
+                    <span>Proceed to Secure Checkout</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopify Style Professional Checkout Modal (Split View) -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs hidden flex items-center justify-center p-2 sm:p-6">
+        <div class="bg-white rounded-3xl max-w-5xl w-full overflow-hidden shadow-2xl flex flex-col lg:flex-row max-h-[95vh]">
+            
+            <!-- Left Side: Express Checkout & Form Fields -->
+            <div class="flex-1 p-6 sm:p-8 overflow-y-auto space-y-6">
+                <div class="flex justify-between items-center border-b border-stone-100 pb-4">
+                    <h3 class="text-2xl font-serif font-bold text-stone-900" data-en="Express Secure Checkout" data-cn="专业安全结账通道">Express Secure Checkout</h3>
+                    <button onclick="closeCheckout()" class="lg:hidden text-stone-400 hover:text-stone-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                </div>
+
+                <!-- Express Payment Buttons -->
+                <div class="space-y-3">
+                    <span class="text-xs font-semibold text-stone-400 uppercase tracking-wider block" data-en="Express checkout" data-cn="快捷一键支付">Express checkout</span>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button onclick="alert('Redirecting to Shop Pay...')" class="py-3 px-4 rounded-xl bg-[#5a31f4] hover:bg-[#4c28d1] text-white font-bold text-sm shadow-xs flex items-center justify-center">shop</button>
+                        <button onclick="alert('Redirecting to PayPal...')" class="py-3 px-4 rounded-xl bg-[#ffc439] hover:bg-[#f4bc32] text-stone-900 font-bold text-sm shadow-xs flex items-center justify-center">PayPal</button>
+                        <button onclick="alert('Redirecting to Google Pay...')" class="py-3 px-4 rounded-xl bg-black hover:bg-stone-800 text-white font-bold text-sm shadow-xs flex items-center justify-center">G Pay</button>
+                    </div>
+                </div>
+
+                <div class="relative flex py-2 items-center">
+                    <div class="flex-grow border-t border-stone-200"></div>
+                    <span class="flex-shrink mx-4 text-stone-400 text-xs uppercase tracking-widest" data-en="Or pay with card or transfer" data-cn="或者选择银行卡与转账">Or pay with card or transfer</span>
+                    <div class="flex-grow border-t border-stone-200"></div>
+                </div>
+
+                <!-- Contact & Delivery Form -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-700 mb-1" data-en="Contact Email / Phone" data-cn="电子邮箱或联系电话">Contact Email / Phone</label>
+                        <input type="text" id="chkContact" placeholder="e.g. 07123456789 or email@gmail.com" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-rose-500 focus:outline-hidden">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-700 mb-1" data-en="First Name" data-cn="名 (First Name)">First Name</label>
+                            <input type="text" id="chkFirst" placeholder="Jessica" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-rose-500 focus:outline-hidden">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-700 mb-1" data-en="Last Name" data-cn="姓 (Last Name)">Last Name</label>
+                            <input type="text" id="chkLast" placeholder="Smith" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-rose-500 focus:outline-hidden">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-700 mb-1" data-en="Nottingham Delivery Address or Collection Date" data-cn="诺丁汉配送地址 / 取货时间">Nottingham Delivery Address / Collection Date</label>
+                        <textarea id="chkAddress" rows="2" placeholder="NG1 / NG7 or Collection at Studio..." class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-rose-500 focus:outline-hidden"></textarea>
+                    </div>
+
+                    <!-- Payment Method Selection -->
+                    <div class="space-y-2 pt-2">
+                        <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider" data-en="Payment Method" data-cn="支付方式选择">Payment Method</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="border border-rose-600 bg-rose-50/60 p-3 rounded-xl flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="payMethod" checked class="text-rose-600 focus:ring-rose-500">
+                                <span class="text-xs font-semibold text-stone-900" data-en="Stripe / Credit Card" data-cn="Stripe 在线刷卡">Stripe / Credit Card</span>
+                            </label>
+                            <label class="border border-stone-200 hover:border-stone-300 p-3 rounded-xl flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="payMethod" class="text-rose-600 focus:ring-rose-500">
+                                <span class="text-xs font-semibold text-stone-700" data-en="UK Bank Transfer (£0 fee)" data-cn="英国本地银行转账 (免手续费)">UK Bank Transfer (£0 fee)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="submitOrderFinal()" class="w-full py-4 rounded-2xl bg-stone-900 hover:bg-stone-800 text-white font-bold transition-all shadow-md text-base" data-en="Complete Order & Generate Receipt" data-cn="确认提交订单并生成凭证">
+                    Complete Order & Generate Receipt
+                </button>
+            </div>
+
+            <!-- Right Side: Order Summary (Shopify Style Sidebar) -->
+            <div class="w-full lg:w-96 bg-stone-50 p-6 sm:p-8 border-t lg:border-t-0 lg:border-l border-stone-200 flex flex-col justify-between">
+                <div class="space-y-6">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-serif font-bold text-stone-900 text-lg" data-en="Order Summary" data-cn="订单摘要">Order Summary</h4>
+                        <button onclick="closeCheckout()" class="hidden lg:block text-stone-400 hover:text-stone-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                    </div>
+                    <div id="checkoutSummaryItems" class="space-y-3 max-h-64 overflow-y-auto divide-y divide-stone-200/60"></div>
+                </div>
+
+                <div class="pt-6 border-t border-stone-200 space-y-2 mt-6">
+                    <div class="flex justify-between text-xs text-stone-500">
+                        <span data-en="Delivery / Collection" data-cn="配送 / 自提">Delivery / Collection</span>
+                        <span class="font-semibold text-stone-800" data-en="Calculated at next step" data-cn="以最终确认为准">Calculated at next step</span>
+                    </div>
+                    <div class="flex justify-between text-lg font-serif font-bold text-stone-900 pt-2 border-t border-stone-200">
+                        <span data-en="Total due" data-cn="应付总额">Total due</span>
+                        <span id="checkoutTotalAmount" class="text-rose-700">£0.00</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
+            <p class="text-lg font-serif font-semibold text-stone-200">mitangnotts 诺丁汉鲜奶油蛋糕</p>
+            <p class="text-xs" data-en="Handcrafted with love in Nottingham, UK. All rights reserved." data-cn="英国诺丁汉匠心手作鲜奶油蛋糕 • 版权所有">Handcrafted with love in Nottingham, UK.</p>
+        </div>
+    </footer>
+
+    <!-- Script Application -->
+    <script>
+        let currentLang = 'en';
+        const priceSignature = { '6" (2-4 pax)': 46, '8" (6-8 pax)': 60, '10" (10-12 pax)': 75 };
+        const priceNextDay = { '6" (2-4 pax)': 40, '8" (5-7 pax)': 50, '10" (8-10 pax)': 60 };
+
+        const products = [
+            { id: 'sig-1', category: 'signature', image: '3-1.jpg', nameEn: 'Matcha Cream Cake', nameCn: '宇治抹茶鲜奶油蛋糕', descEn: 'Uji premium matcha infused chiffon and rich silky green tea fresh cream.', descCn: '京都宇治顶级抹茶，茶香浓郁清苦回甘。', prices: priceSignature },
+            { id: 'sig-2', category: 'signature', image: '3-2.jpg', nameEn: 'Caramel Cream Cake', nameCn: '海盐焦糖鲜奶油蛋糕', descEn: 'House-made salted buttery caramel layered with whipped fresh cream.', descCn: '自家熬制海盐焦糖酱，咸甜交织。', prices: priceSignature },
+            { id: 'sig-3', category: 'signature', image: '3-3.jpg', nameEn: 'Earl Grey Tea Cream Cake', nameCn: '伯爵茶香鲜奶油蛋糕', descEn: 'Fragrant British Earl Grey tea infused cream with soft moist sponge.', descCn: '浓郁英式伯爵茶茶汤融入轻盈奶油。', prices: priceSignature },
+            { id: 'sig-4', category: 'signature', image: '3-4.jpg', nameEn: 'Black Sesame Cream Cake', nameCn: '黑芝麻流心鲜奶油蛋糕', descEn: 'Rich toasted black sesame paste blended into smooth dairy cream.', descCn: '精选黑芝麻深度烘焙研磨。', prices: priceSignature },
+            { id: 'sig-5', category: 'signature', image: '3-5.jpg', nameEn: 'Jasmine Tea Cream Cake', nameCn: '茉莉清茶鲜奶油蛋糕', descEn: 'Delicate floral jasmine green tea infused cream with gentle sweetness.', descCn: '清新茉莉花茶香，口感清爽淡雅。', prices: priceSignature },
+            { id: 'sig-6', category: 'signature', image: '3-6.jpg', nameEn: 'Pistachio Cream Cake', nameCn: '西西里开心果鲜奶油蛋糕', descEn: 'Roasted Sicilian pistachio cream layered with smooth chocolate ganache.', descCn: '香浓开心果酱与纯鲜奶油完美融合。', prices: priceSignature },
+            { id: 'nd-1', category: 'nextday', image: '2-1.jpg', nameEn: 'Textured Lettering Next-Day Cake', nameCn: '韩系质感涂抹定制字母蛋糕', descEn: 'Hand-textured white fresh cream cake with custom dark lettering.', descCn: '韩系复古质感抹面，定制手写祝福。', prices: priceNextDay },
+            { id: 'nd-2', category: 'nextday', image: '2-2.jpg', nameEn: 'Pearl Heart Next-Day Cake', nameCn: '珍珠心形次日达蛋糕', descEn: 'Stunning quilted heart-shaped cake adorned with delicate silver stars.', descCn: '精美菱格纹心形蛋糕。', prices: priceNextDay },
+            { id: 'nd-3', category: 'nextday', image: '2-3.jpg', nameEn: 'Blueberry Minimalist Next-Day Cake', nameCn: '极简蓝莓鲜奶油蛋糕', descEn: 'Clean white fresh cream finish bordered with fresh blueberries.', descCn: '纯净白色抹面环绕新鲜饱满蓝莓。', prices: priceNextDay },
+            { id: 'nd-4', category: 'nextday', image: '2-4.jpg', nameEn: 'Vintage Ribbon Heart Cake', nameCn: '法式复古缎带心形蛋糕', descEn: 'Romantic vintage piping with delicate ribbon accents.', descCn: '法式宫廷复古挤花与精致缎带。', prices: priceNextDay },
+            { id: 'nd-5', category: 'nextday', image: '2-5.jpg', nameEn: 'Chic Bowknot Fresh Cream Cake', nameCn: '优雅蝴蝶结鲜奶油蛋糕', descEn: 'Minimalist white frosting decorated with sweet minimalist bows.', descCn: '优雅纯白造型点缀定制蝴蝶结。', prices: priceNextDay },
+            { id: 'nd-6', category: 'nextday', image: '2-6.jpg', nameEn: 'Korean Minimalist Line Cake', nameCn: '韩系线条极简生日蛋糕', descEn: 'Smooth pastel finish with delicate minimalist line art.', descCn: '温柔低饱和色调线条艺术。', prices: priceNextDay },
+            { id: 'nd-7', category: 'nextday', image: '2-7.jpg', nameEn: 'Retro Cherry Birthday Cake', nameCn: '复古美式红樱桃蛋糕', descEn: 'Classic vintage piping with glossy bright red cherries.', descCn: '美式复古经典裱花造型。', prices: priceNextDay },
+            { id: 'nd-8', category: 'nextday', image: '2-8.jpg', nameEn: 'Elegant Floral Fresh Cream Cake', nameCn: '仙气淡雅韩式裱花蛋糕', descEn: 'Hand-piped delicate cream florals on soft pastel base.', descCn: '匠心手作奶油挤花。', prices: priceNextDay },
+            { id: 'nd-9', category: 'nextday', image: '2-9.jpg', nameEn: 'Golden Crown Celebration Cake', nameCn: '精致皇冠加冕纪念蛋糕', descEn: 'Luxurious crown topper with gold dust accents.', descCn: '高贵小皇冠造型。', prices: priceNextDay },
+            { id: 'nd-10', category: 'nextday', image: '2-10.jpg', nameEn: 'Shimmering Starry Night Cake', nameCn: '梦幻星河闪耀奶油蛋糕', descEn: 'Sparkling edible dust and star sprinkles on dreamy backdrop.', descCn: '梦幻渐变色系星光糖珠。', prices: priceNextDay },
+            { id: 'nd-11', category: 'nextday', image: '2-11.jpg', nameEn: 'Rainbow Brushstroke Party Cake', nameCn: '彩虹抹面派对生日蛋糕', descEn: 'Vibrant colorful brushstrokes with cute party hat topper.', descCn: '明快活泼彩色抹面。', prices: priceNextDay },
+            { id: 'nd-12', category: 'nextday', image: '2-12.jpg', nameEn: 'Oreo Monster Fun Cake', nameCn: '搞怪奥利奥小怪兽蛋糕', descEn: 'Playful Oreo cookies arranged like cute monsters with eyes.', descCn: '趣味奥利奥装饰。', prices: priceNextDay },
+            { id: 'nd-13', category: 'nextday', image: '2-13.jpg', nameEn: 'Adorable Puppy Paws Cake', nameCn: '萌趣小狗爪爪奶油蛋糕', descEn: 'Cute puppy ears and paws decoration in warm yellow tones.', descCn: '治愈系小狗主题。', prices: priceNextDay },
+            { id: 'nd-14', category: 'nextday', image: '2-14.jpg', nameEn: 'Cherry Blossom Brush Cake', nameCn: '樱桃粉调复古涂抹蛋糕', descEn: 'Soft pink brush strokes with sweet little cherries.', descCn: '柔美粉调与精致樱桃。', prices: priceNextDay },
+            { id: 'nd-15', category: 'nextday', image: '2-15.jpg', nameEn: 'Cute Little Piggy Cake', nameCn: '呆萌小粉猪治愈蛋糕', descEn: 'Adorable piggy face design that brings an instant smile.', descCn: '萌趣小猪造型。', prices: priceNextDay },
+            { id: 'nd-16', category: 'nextday', image: '2-16.jpg', nameEn: 'White Bear & Hearts Cake', nameCn: '白巧小熊爱心生日蛋糕', descEn: 'Hand-crafted white chocolate bear with scattered hearts.', descCn: '精美白巧小熊公仔。', prices: priceNextDay },
+            { id: 'nd-17', category: 'nextday', image: '2-17.jpg', nameEn: 'Black Ribbon Gothic Grace Cake', nameCn: '暗黑高级感黑缎带蛋糕', descEn: 'Stunning contrast with sleek black ribbon trim.', descCn: '高级黑缎带与复古挤边。', prices: priceNextDay },
+            { id: 'nd-18', category: 'nextday', image: '2-18.jpg', nameEn: '21st Birthday Daisy Art Cake', nameCn: '小雏菊21岁定制纪念蛋糕', descEn: 'Custom milestone birthday number with playful daisies.', descCn: '清新小雏菊定制。', prices: priceNextDay },
+            { id: 'nd-19', category: 'nextday', image: '2-19.jpg', nameEn: 'Celestial Moon & Wave Cake', nameCn: '星月流光奶油艺术蛋糕', descEn: 'Ethereal crescent moon topper with flowing cream waves.', descCn: '唯美月亮装饰。', prices: priceNextDay },
+            { id: 'nd-20', category: 'nextday', image: '2-20.jpg', nameEn: '2D Cartoon Comic Style Cake', nameCn: '2D漫画风立体仿真蛋糕', descEn: 'Trendy comic book 2D outline design with party hat.', descCn: '时下流行二次元漫画风。', prices: priceNextDay },
+            { id: 'fc-1', category: 'fruit', image: '1.jpg', nameEn: 'Classic Strawberry Shortcake', nameCn: '经典鲜草莓奶油蛋糕', descEn: 'Layers of fresh Scottish strawberries and light Chantilly cream.', descCn: '精选新鲜多汁草莓，搭配丝滑香缇奶油。', prices: priceSignature },
+            { id: 'fc-2', category: 'fruit', image: '2.jpg', nameEn: 'Shine Muscat Green Grape Cake', nameCn: '阳光玫瑰青提奶油蛋糕', descEn: 'Juicy crisp Shine Muscat grapes nested in premium cream sponge.', descCn: '清甜爆汁的阳光玫瑰青提。', prices: priceSignature },
+            { id: 'fc-3', category: 'fruit', image: '3.jpg', nameEn: 'Mango Passionfruit Delight', nameCn: '芒果百香果清新蛋糕', descEn: 'Sweet ripe Alfonso mango chunks with a hint of passionfruit zest.', descCn: '浓郁金枕芒果肉。', prices: priceSignature },
+            { id: 'fc-4', category: 'fruit', image: '4.jpg', nameEn: 'Mixed Berry Garden Cake', nameCn: '森林混合浆果奶油蛋糕', descEn: 'A lush garden of raspberries, blueberries, and strawberries.', descCn: '覆盆子、蓝莓与草莓酸甜盛宴。', prices: priceSignature },
+            { id: 'fc-5', category: 'fruit', image: '5.jpg', nameEn: 'Peach Oolong Fruit Cake', nameCn: '白桃乌龙茶香水果蛋糕', descEn: 'Fragrant white peach chunks paired with light oolong tea cream.', descCn: '清甜白桃果肉与乌龙茶香奶油。', prices: priceSignature },
+            { id: 'fc-6', category: 'fruit', image: '6.jpg', nameEn: 'Exotic Tropical Fruit Gateau', nameCn: '热带风情鲜果奶油蛋糕', descEn: 'Assorted seasonal fresh tropical fruits on delicate sponge.', descCn: '丰富时令水果铺满表面。', prices: priceSignature },
+            { id: 'fc-7', category: 'fruit', image: '7.jpg', nameEn: 'Ruby Pomegranate Berry Cake', nameCn: '红宝石石榴浆果蛋糕', descEn: 'Sparkling pomegranate arils with fresh berries.', descCn: '晶莹剔透红石榴。', prices: priceSignature },
+            { id: 'fc-8', category: 'fruit', image: '8.jpg', nameEn: 'Zesty Citrus Lemon Cream Cake', nameCn: '清新柠檬蜜橘水果蛋糕', descEn: 'Bright citrus notes balanced with sweet dairy cream.', descCn: '清新柑橘果香。', prices: priceSignature },
+            { id: 'fc-9', category: 'fruit', image: '9.jpg', nameEn: 'Double Melon Summer Cake', nameCn: '双色密瓜夏日清爽蛋糕', descEn: 'Sweet green and orange melon balls with vanilla cream.', descCn: '精选哈密瓜与网纹瓜球。', prices: priceSignature },
+            { id: 'fc-10', category: 'fruit', image: '10.jpg', nameEn: 'Fig & Honey Fresh Cream Cake', nameCn: '无花果黄金蜂蜜鲜果蛋糕', descEn: 'Fresh sweet figs drizzled with organic honey.', descCn: '软糯清甜无花果搭配有机蜂蜜。', prices: priceSignature },
+            { id: 'fc-11', category: 'fruit', image: '11.jpg', nameEn: 'Heart Raspberry Ribbon Cake', nameCn: '红丝带覆盆子心形鲜果蛋糕', descEn: 'Heart-shaped cake brimming with fresh raspberries and red ribbons.', descCn: '精致心形覆盆子与红缎带。', prices: priceSignature },
+            { id: 'fc-12', category: 'fruit', image: '12.jpg', nameEn: 'Ruffled Raspberry Mini Cake', nameCn: '精致花边覆盆子奶油蛋糕', descEn: 'Delicate ruffled frosting borders with fresh raspberries.', descCn: '优雅波浪花边覆盆子。', prices: priceSignature },
+            { id: 'fc-13', category: 'fruit', image: '13.jpg', nameEn: 'Cloud Wish Mixed Fruit Cake', nameCn: '云朵祝愿什锦鲜果蛋糕', descEn: 'Happy Birthday cloud topper surrounded by lush mixed fruits.', descCn: '可爱云朵生日牌。', prices: priceSignature },
+            { id: 'fc-14', category: 'fruit', image: '14.jpg', nameEn: 'Ruby Pomegranate Strawberry Cake', nameCn: '红石榴草莓鲜果蛋糕', descEn: 'Garnished with fresh strawberries and ruby pomegranate.', descCn: '草莓与红石榴结合。', prices: priceSignature },
+            { id: 'fc-15', category: 'fruit', image: '15.jpg', nameEn: 'Green Grape Gradient Cake', nameCn: '渐变青提奶油鲜果蛋糕', descEn: 'Pastel green gradient frosting topped with lush green grapes.', descCn: '温柔渐变抹面青提。', prices: priceSignature },
+            { id: 'fc-16', category: 'fruit', image: '16.jpg', nameEn: 'Lime & Green Grape Fresh Cake', nameCn: '青柠青提特调果香蛋糕', descEn: 'Sliced limes and fresh green grapes for a zesty twist.', descCn: '青柠与青提自然风味。', prices: priceSignature },
+            { id: 'fc-17', category: 'fruit', image: '17.jpg', nameEn: 'Minimalist Strawberry Crown Cake', nameCn: '极简草莓皇冠奶油蛋糕', descEn: 'Six crown-placed strawberries on pristine white cream.', descCn: '纯净白奶油错落草莓。', prices: priceSignature },
+            { id: 'fc-18', category: 'fruit', image: '18.jpg', nameEn: 'Smiley Berry Party Cake', nameCn: '微笑小脸浆果派对蛋糕', descEn: 'Charming smiley face design with berry crown and little heart feet.', descCn: '治愈系微笑小脸。', prices: priceSignature },
+            { id: 'fc-19', category: 'fruit', image: '19.jpg', nameEn: 'Mango Strawberry Duo Cake', nameCn: '芒果草莓双拼鲜果蛋糕', descEn: 'Half sweet mango cubes and half fresh strawberries.', descCn: '金黄芒果与红润草莓双拼。', prices: priceSignature },
+            { id: 'fc-20', category: 'fruit', image: '20.jpg', nameEn: 'Minimalist Rosemary Berry Cake', nameCn: '迷迭香极简草莓蓝莓蛋糕', descEn: 'Elegant minimalist styling with fresh berries and rosemary sprigs.', descCn: '极简法式设计莓果。', prices: priceSignature }
+        ];
+
+        let cart = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts('all');
+            updateCartBadge();
+        });
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'cn' : 'en';
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${currentLang}`);
+                if (text) el.textContent = text;
+            });
+            renderProducts(activeCategory);
+        }
+
+        let activeCategory = 'all';
+        function filterCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('bg-rose-900', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-white', 'text-stone-700', 'hover:bg-rose-50', 'border', 'border-rose-200');
+            });
+            event.target.classList.remove('bg-white', 'text-stone-700', 'hover:bg-rose-50', 'border', 'border-rose-200');
+            event.target.classList.add('bg-rose-900', 'text-white', 'shadow-sm');
+            renderProducts(cat);
+        }
+
+        function renderProducts(category) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+            const filtered = category === 'all' ? products : products.filter(p => p.category === category);
+
+            filtered.forEach(p => {
+                const name = currentLang === 'cn' ? p.nameCn : p.nameEn;
+                const desc = currentLang === 'cn' ? p.descCn : p.descEn;
+                const minPrice = Math.min(...Object.values(p.prices));
+
+                const card = document.createElement('div');
+                card.className = 'group bg-white rounded-3xl overflow-hidden border border-stone-100 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col';
+                card.innerHTML = `
+                    <div class="relative aspect-square overflow-hidden bg-rose-50/50 cursor-pointer" onclick="openModal('${p.id}')">
+                        <img src="${p.image}" alt="${name}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23f43f5e\' stroke-width=\'1\'><rect width=\'18\' height=\'18\' x=\'3\' y=\'3\' rx=\'2\'/><circle cx=\'9\' cy=\'9\' r=\'2\'/><path d=\'m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21\'/></svg>'">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-xs px-3 py-1 rounded-full text-xs font-semibold text-rose-800 shadow-xs">
+                            ${currentLang === 'cn' ? '多尺寸可选' : 'Multiple Sizes'}
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div class="space-y-2 cursor-pointer" onclick="openModal('${p.id}')">
+                            <h3 class="font-serif font-bold text-stone-900 text-lg group-hover:text-rose-700 transition-colors">${name}</h3>
+                            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">${desc}</p>
+                        </div>
+                        <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase font-semibold text-stone-400 block">${currentLang === 'cn' ? '起步价' : 'From'}</span>
+                                <span class="text-lg font-serif font-bold text-rose-800">£${minPrice.toFixed(2)}</span>
+                            </div>
+                            <button onclick="openModal('${p.id}')" class="px-4 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-800 text-xs font-semibold transition-colors">
+                                ${currentLang === 'cn' ? '查看详情 & 选购' : 'View Details'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        let currentModalProduct = null;
+        let selectedSize = '';
+        let selectedPrice = 0;
+
+        function openModal(id) {
+            const p = products.find(item => item.id === id);
+            if (!p) return;
+            currentModalProduct = p;
+
+            const name = currentLang === 'cn' ? p.nameCn : p.nameEn;
+            const desc = currentLang === 'cn' ? p.descCn : p.descEn;
+
+            document.getElementById('modalContent').innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="aspect-square rounded-2xl overflow-hidden bg-rose-50/50 shadow-inner">
+                        <img src="${p.image}" alt="${name}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-serif font-bold text-stone-900">${name}</h2>
+                        <p class="text-sm text-stone-600 leading-relaxed">${desc}</p>
+                        <div class="space-y-2">
+                            <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider">${currentLang === 'cn' ? '选择尺寸规格' : 'Select Size'}</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                ${Object.entries(p.prices).map(([size, price], idx) => `
+                                    <button onclick="selectSize('${size}', ${price})" class="size-option-btn p-2.5 rounded-xl border text-center transition-all ${idx === 0 ? 'border-rose-600 bg-rose-50 text-rose-900 font-bold' : 'border-stone-200 hover:border-rose-300 text-stone-700'}" data-size="${size}">
+                                        <div class="text-xs font-semibold">${size.split(' ')[0]}</div>
+                                        <div class="text-xs font-serif text-rose-800">£${price.toFixed(2)}</div>
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 block">${currentLang === 'cn' ? '总计价格' : 'Total Price'}</span>
+                                <span id="modalPriceDisplay" class="text-2xl font-serif font-bold text-rose-800">£${Object.values(p.prices)[0].toFixed(2)}</span>
+                            </div>
+                            <button onclick="addToCartFromModal()" class="px-6 py-3 rounded-2xl bg-rose-700 hover:bg-rose-800 text-white font-semibold shadow-md transition-all">
+                                ${currentLang === 'cn' ? '加入购物车 Add to Bag' : 'Add to Bag'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('productModal').classList.remove('hidden');
+            selectedSize = Object.keys(p.prices)[0];
+            selectedPrice = Object.values(p.prices)[0];
+        }
+
+        function selectSize(size, price) {
+            selectedSize = size;
+            selectedPrice = price;
+            document.querySelectorAll('.size-option-btn').forEach(btn => {
+                if (btn.getAttribute('data-size') === size) {
+                    btn.className = 'size-option-btn p-2.5 rounded-xl border text-center transition-all border-rose-600 bg-rose-50 text-rose-900 font-bold';
+                } else {
+                    btn.className = 'size-option-btn p-2.5 rounded-xl border text-center transition-all border-stone-200 hover:border-rose-300 text-stone-700';
+                }
+            });
+            document.getElementById('modalPriceDisplay').textContent = `£${price.toFixed(2)}`;
+        }
+
+        function closeModal() { document.getElementById('productModal').classList.add('hidden'); }
+
+        function addToCartFromModal() {
+            if (!currentModalProduct) return;
+            const name = currentLang === 'cn' ? currentModalProduct.nameCn : currentModalProduct.nameEn;
+            const existing = cart.find(item => item.id === currentModalProduct.id && item.size === selectedSize);
+            if (existing) { existing.quantity += 1; } 
+            else { cart.push({ id: currentModalProduct.id, name, size: selectedSize, price: selectedPrice, image: currentModalProduct.image, quantity: 1 }); }
+            updateCartBadge();
+            closeModal();
+            toggleCartDrawer(true);
+        }
+
+        function toggleCartDrawer(open) {
+            const drawer = document.getElementById('cartDrawer');
+            if (open) { renderCartItems(); drawer.classList.remove('hidden'); } 
+            else { drawer.classList.add('hidden'); }
+        }
+
+        function updateCartBadge() {
+            document.getElementById('cartBadge').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cartItemsContainer');
+            container.innerHTML = '';
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-center text-stone-400 py-12 text-sm" data-en="Your bag is empty" data-cn="您的购物袋是空的">Your bag is empty</p>`;
+                document.getElementById('cartSubtotal').textContent = '£0.00';
+                return;
+            }
+            let subtotal = 0;
+            cart.forEach((item, index) => {
+                subtotal += item.price * item.quantity;
+                const div = document.createElement('div');
+                div.className = 'py-4 flex items-center justify-between space-x-4';
+                div.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <img src="${item.image}" class="w-14 h-14 object-cover rounded-xl bg-rose-50" />
+                        <div>
+                            <h4 class="text-sm font-semibold text-stone-900">${item.name}</h4>
+                            <p class="text-xs text-stone-500">${item.size} • £${item.price.toFixed(2)}</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="flex items-center border border-stone-200 rounded-lg overflow-hidden">
+                            <button onclick="updateQty(${index}, -1)" class="px-2.5 py-1 bg-stone-50 hover:bg-stone-100 text-stone-600 text-xs">-</button>
+                            <span class="px-3 text-xs font-semibold">${item.quantity}</span>
+                            <button onclick="updateQty(${index}, 1)" class="px-2.5 py-1 bg-stone-50 hover:bg-stone-100 text-stone-600 text-xs">+</button>
+                        </div>
+                        <button onclick="removeItem(${index})" class="text-stone-400 hover:text-rose-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+            document.getElementById('cartSubtotal').textContent = `£${subtotal.toFixed(2)}`;
+        }
+
+        function updateQty(index, delta) {
+            cart[index].quantity += delta;
+            if (cart[index].quantity <= 0) cart.splice(index, 1);
+            updateCartBadge();
+            renderCartItems();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartBadge();
+            renderCartItems();
+        }
+
+        function openCheckout() {
+            if (cart.length === 0) {
+                alert(currentLang === 'cn' ? '您的购物袋还没有商品哦！' : 'Your bag is empty!');
+                return;
+            }
+            toggleCartDrawer(false);
+
+            let subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const summaryContainer = document.getElementById('checkoutSummaryItems');
+            summaryContainer.innerHTML = '';
+
+            cart.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'py-2 flex items-center justify-between text-xs';
+                div.innerHTML = `
+                    <div class="flex items-center space-x-2">
+                        <img src="${item.image}" class="w-10 h-10 object-cover rounded-lg">
+                        <div>
+                            <span class="font-semibold text-stone-800 block">${item.name}</span>
+                            <span class="text-stone-500">${item.size} x ${item.quantity}</span>
+                        </div>
+                    </div>
+                    <span class="font-serif font-bold text-stone-900">£${(item.price * item.quantity).toFixed(2)}</span>
+                `;
+                summaryContainer.appendChild(div);
+            });
+
+            document.getElementById('checkoutTotalAmount').textContent = `£${subtotal.toFixed(2)}`;
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        }
+
+        function submitOrderFinal() {
+            const contact = document.getElementById('chkContact').value.trim();
+            const first = document.getElementById('chkFirst').value.trim();
+            const last = document.getElementById('chkLast').value.trim();
+            const address = document.getElementById('chkAddress').value.trim();
+
+            if (!contact || !first) {
+                alert(currentLang === 'cn' ? '请填写联系方式和姓名！' : 'Please provide contact info and name.');
+                return;
+            }
+
+            let subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            let itemsText = cart.map(i => `- ${i.name} (${i.size}) x ${i.quantity} (£${(i.price * i.quantity).toFixed(2)})`).join('\n');
+
+            const orderText = `🍰 [mitangnotts 诺丁汉鲜奶油蛋糕订单凭证]
+-----------------------------------
+客户姓名 Name: ${first} ${last}
+联系方式 Contact: ${contact}
+配送地址/自提备注 Address: ${address || 'Collection'}
+-----------------------------------
+购买商品 Items:
+${itemsText}
+-----------------------------------
+应付总额 Total: £${subtotal.toFixed(2)}
+-----------------------------------
+请核对无误后发送给客服完成支付！`;
+
+            navigator.clipboard.writeText(orderText).then(() => {
+                alert(currentLang === 'cn' ? '订单凭证已成功复制！请发送给客服完成支付与确认。' : 'Order summary copied to clipboard! Please send it to customer service.');
+                closeCheckout();
+                cart = [];
+                updateCartBadge();
+            }).catch(() => {
+                alert('Order processed successfully!');
+            });
+        }
+    </script>
+</body>
+</html>
