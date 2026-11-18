@@ -11,7 +11,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
        (function(){
-          emailjs.init("YOUR_PUBLIC_KEY");
+          emailjs.init("NYIS68fXQGiOv57wK");
        })();
     </script>
     <style>
@@ -688,7 +688,6 @@
             }
         ];
 
-        // 整合 boxedCakes 数组，包含所有甜品分类
         const boxedCakes = [
             ...boxesCakesList,
             { 
@@ -1668,7 +1667,8 @@
                 pay_method: selectedPay.toUpperCase()
             };
 
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams).catch(err => console.log('EmailJS info:', err));
+            // 使用您提供的 Service ID: service_rxqptjs 和 Template ID (请替换 template_xxxxxx)
+            emailjs.send('service_rxqptjs', 'YOUR_TEMPLATE_ID', templateParams).catch(err => console.log('EmailJS error:', err));
 
             let summaryText = `🎂 mitangnotts Order (Sent to dieyuegege@hotmail.com)\nCustomer: ${first} ${last}\nContact: ${contact}\nNote: ${address}\n\nItems:\n${itemsText}\nTotal: £${subtotal.toFixed(2)}`;
             if (navigator.clipboard) {
