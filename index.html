@@ -23,7 +23,6 @@
         h1, h2, h3, .font-serif {
             font-family: 'Playfair Display', serif;
         }
-        /* 鼠标悬停下拉菜单 (仅在电脑端生效) */
         @media (min-width: 768px) {
             .dropdown:hover .dropdown-menu {
                 display: block;
@@ -75,7 +74,7 @@
                     </div>
                 </div>
 
-                <!-- Dessert Dropdown (支持点击切换) -->
+                <!-- Dessert Dropdown -->
                 <div class="relative dessert-dropdown py-4">
                     <button onclick="toggleDessertDropdown(event)" class="hover:text-rose-700 transition-colors flex items-center gap-1 bg-transparent border-none cursor-pointer text-sm font-semibold text-stone-700">
                         <span class="nav-dessert">Dessert</span> 
@@ -124,16 +123,17 @@
                     <span class="m-order-online">Order Online</span>
                     <svg class="w-5 h-5 text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </div>
-                <div id="mobileOrderSub" class="hidden pl-4 pt-3 space-y-3 text-sm text-stone-600">
-                    <a href="#birthday-cakes" onclick="filterCategory('all'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 m-sub-all">All Birthday Cakes</a>
-                    <a href="#birthday-cakes" onclick="filterCategory('fruit'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 nav-cat-fruit">Fruit Cakes</a>
-                    <a href="#birthday-cakes" onclick="filterCategory('nextday'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 nav-cat-nextday">Next Day Cakes</a>
-                    <a href="#birthday-cakes" onclick="filterCategory('heart'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 nav-cat-heart">Heart Cakes</a>
-                    <a href="#birthday-cakes" onclick="filterCategory('sculpted'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 nav-cat-sculpted">Sculpted Cakes</a>
-                    <a href="#birthday-cakes" onclick="filterCategory('specialty'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 nav-cat-specialty">Specialty-Flavored Cakes</a>
-                    <a href="#birthday-cakes" onclick="filterCategory('fixed4'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 nav-cat-fixed4">4-Inch Fixed Designs</a>
-                    <a href="#birthday-cakes" onclick="filterCategory('fixed5'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 nav-cat-fixed5">5-Inch Fixed Designs</a>
-                    <a href="#boxed-cakes" onclick="filterDessert('all'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 m-sub-dessert">Dessert & Boxes Cakes</a>
+                <!-- 修复：将 All Birthday Cakes 和 Dessert & Boxes Cakes 加黑、加粗、加大显示 -->
+                <div id="mobileOrderSub" class="hidden pl-4 pt-3 space-y-3 text-stone-700">
+                    <a href="#birthday-cakes" onclick="filterCategory('all'); toggleMobileMenu(false); showCatalogView();" class="block font-black text-lg text-rose-950 hover:text-rose-700 m-sub-all">All Birthday Cakes</a>
+                    <a href="#birthday-cakes" onclick="filterCategory('fruit'); toggleMobileMenu(false); showCatalogView();" class="block text-sm font-medium hover:text-rose-700 nav-cat-fruit">Fruit Cakes</a>
+                    <a href="#birthday-cakes" onclick="filterCategory('nextday'); toggleMobileMenu(false); showCatalogView();" class="block text-sm font-medium hover:text-rose-700 nav-cat-nextday">Next Day Cakes</a>
+                    <a href="#birthday-cakes" onclick="filterCategory('heart'); toggleMobileMenu(false); showCatalogView();" class="block text-sm font-medium hover:text-rose-700 nav-cat-heart">Heart Cakes</a>
+                    <a href="#birthday-cakes" onclick="filterCategory('sculpted'); toggleMobileMenu(false); showCatalogView();" class="block text-sm font-medium hover:text-rose-700 nav-cat-sculpted">Sculpted Cakes</a>
+                    <a href="#birthday-cakes" onclick="filterCategory('specialty'); toggleMobileMenu(false); showCatalogView();" class="block text-sm font-medium hover:text-rose-700 nav-cat-specialty">Specialty-Flavored Cakes</a>
+                    <a href="#birthday-cakes" onclick="filterCategory('fixed4'); toggleMobileMenu(false); showCatalogView();" class="block text-sm font-medium hover:text-rose-700 nav-cat-fixed4">4-Inch Fixed Designs</a>
+                    <a href="#birthday-cakes" onclick="filterCategory('fixed5'); toggleMobileMenu(false); showCatalogView();" class="block text-sm font-medium hover:text-rose-700 nav-cat-fixed5">5-Inch Fixed Designs</a>
+                    <a href="#boxed-cakes" onclick="filterDessert('all'); toggleMobileMenu(false); showCatalogView();" class="block font-black text-lg text-rose-950 hover:text-rose-700 pt-3 m-sub-dessert">Dessert & Boxes Cakes</a>
                 </div>
             </div>
         </div>
@@ -155,7 +155,8 @@
                     Light, Fresh & Beautiful Cream Cakes
                 </h1>
                 <p class="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-normal leading-relaxed mb-2 hero-desc">Whipped 100% pure dairy fresh cream with ultra-soft chiffon sponges.</p>
-                <p class="text-sm font-semibold text-rose-700 mb-8 hero-custom-notice">✨ 我们接受来图定制，提前5天预定 (We accept custom designs with 5 days advance notice)</p>
+                <!-- 修复：中英文定制文案 -->
+                <p class="text-sm font-semibold text-rose-700 mb-8 hero-custom-notice">✨ We accept custom designs with 5 days advance notice ✨</p>
                 
                 <!-- 生日蛋糕分类筛选按钮 -->
                 <div class="flex flex-wrap justify-center gap-2 sm:gap-2.5">
@@ -358,7 +359,16 @@
         let cart = [];
         let currentDetailProduct = null;
 
-        // 点击空白处关闭 Dessert 下拉菜单
+        // 辅助函数：将 YYYY-MM-DD 格式化为英国标准的日/月/年 (DD/MM/YYYY)
+        function formatDateUK(dateStr) {
+            if (!dateStr) return '';
+            const parts = dateStr.split('-');
+            if (parts.length === 3) {
+                return `${parts[2]}/${parts[1]}/${parts[0]}`;
+            }
+            return dateStr;
+        }
+
         function handleBodyClick(event) {
             const dropdown = document.querySelector('.dessert-dropdown');
             const menu = document.getElementById('dessertDropdownMenu');
@@ -869,7 +879,7 @@
             document.querySelector('.hero-subtitle').textContent = isCn ? '英国诺丁汉高端手工鲜奶油蛋糕工作室' : 'Artisanal Patisserie in Nottingham';
             document.querySelector('.hero-title').textContent = isCn ? '轻盈细腻 · 纯正动物奶油 · 订制心意' : 'Light, Fresh & Beautiful Cream Cakes';
             document.querySelector('.hero-desc').textContent = isCn ? '采用100%纯动物新鲜奶油，搭配入口即化的松软戚风蛋糕坯。' : 'Whipped 100% pure dairy fresh cream with ultra-soft chiffon sponges.';
-            document.querySelector('.hero-custom-notice').textContent = isCn ? '✨ 我们接受来图定制，提前5天预定 (We accept custom designs with 5 days advance notice)' : '✨ We accept custom designs with 5 days advance notice (我们接受来图定制，提前5天预定)';
+            document.querySelector('.hero-custom-notice').textContent = isCn ? '✨ 我们接受来图定制，提前5天预定 ✨' : '✨ We accept custom designs with 5 days advance notice ✨';
 
             document.querySelector('.cat-all').textContent = isCn ? '全部蛋糕' : 'All Cakes';
             document.querySelector('.cat-fruit').textContent = isCn ? '水果蛋糕' : 'Fruit Cakes';
@@ -956,8 +966,6 @@
                 btnEl.classList.add('bg-rose-900', 'text-white');
             }
             renderDesserts(subCat);
-            const boxedSection = document.getElementById('boxed-cakes');
-            if (boxedSection) boxedSection.scrollIntoView({ behavior: 'smooth' });
         }
 
         function renderProducts(category) {
@@ -1103,7 +1111,7 @@
                             </div>
                         </div>
                         <div class="space-y-2.5">
-                            <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider">${isCn ? '选择配送或自取日期 *' : 'Delivery or Collection Date *'}</label>
+                            <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider">${isCn ? '选择配送或自取日期 * (日/月/年 DD/MM/YYYY)' : 'Delivery or Collection Date * (DD/MM/YYYY)'}</label>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 <select id="detailFulfillmentType" class="px-4 py-3 rounded-2xl border border-stone-300 bg-white text-sm font-medium text-stone-800 focus:ring-2 focus:ring-rose-500">
                                     <option value="Nottingham Local Delivery">Nottingham Local Delivery</option>
@@ -1130,8 +1138,9 @@
             const price = currentDetailProduct.prices['1/8 Slice'];
             const fulfillment = document.getElementById('detailFulfillmentType').value;
             const selectedDate = document.getElementById('detailDate').value;
+            const formattedDate = formatDateUK(selectedDate);
 
-            const specSummary = `1/8 Slice | ${fulfillment} on ${selectedDate}`;
+            const specSummary = `1/8 Slice | ${fulfillment} on ${formattedDate}`;
             const isCn = currentLang === 'cn';
             const name = isCn ? currentDetailProduct.nameCn : currentDetailProduct.nameEn;
 
@@ -1197,7 +1206,7 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${sizeSelectorHtml}</div>
                         </div>
                         <div class="space-y-2.5">
-                            <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider">${isCn ? '选择配送或自取日期 *' : 'Delivery or Collection Date *'}</label>
+                            <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider">${isCn ? '选择配送或自取日期 * (日/月/年 DD/MM/YYYY)' : 'Delivery or Collection Date * (DD/MM/YYYY)'}</label>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 <select id="detailFulfillmentType" class="px-4 py-3 rounded-2xl border border-stone-300 bg-white text-sm font-medium text-stone-800 focus:ring-2 focus:ring-rose-500">
                                     <option value="Nottingham Local Delivery">Nottingham Local Delivery</option>
@@ -1238,8 +1247,9 @@
             const price = parseFloat(selectedSizeInput.getAttribute('data-price'));
             const fulfillment = document.getElementById('detailFulfillmentType').value;
             const selectedDate = document.getElementById('detailDate').value;
+            const formattedDate = formatDateUK(selectedDate);
 
-            const specSummary = `Size: ${sizeName} | ${fulfillment} on ${selectedDate}`;
+            const specSummary = `Size: ${sizeName} | ${fulfillment} on ${formattedDate}`;
             const isCn = currentLang === 'cn';
             const name = isCn ? currentDetailProduct.nameCn : currentDetailProduct.nameEn;
 
@@ -1297,7 +1307,7 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-72 overflow-y-auto pr-1">${flavorOptionsHtml}</div>
                         </div>
                         <div class="space-y-2.5">
-                            <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider">${isCn ? '选择配送或自取日期 *' : 'Delivery or Collection Date *'}</label>
+                            <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider">${isCn ? '选择配送或自取日期 * (日/月/年 DD/MM/YYYY)' : 'Delivery or Collection Date * (DD/MM/YYYY)'}</label>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 <select id="detailFulfillmentType" class="px-4 py-3 rounded-2xl border border-stone-300 bg-white text-sm font-medium text-stone-800 focus:ring-2 focus:ring-rose-500">
                                     <option value="Nottingham Local Delivery">Nottingham Local Delivery</option>
@@ -1338,8 +1348,9 @@
             const price = parseFloat(selectedFlavorInput.getAttribute('data-price'));
             const fulfillment = document.getElementById('detailFulfillmentType').value;
             const selectedDate = document.getElementById('detailDate').value;
+            const formattedDate = formatDateUK(selectedDate);
 
-            const specSummary = `Flavor: ${flavorName} | ${fulfillment} on ${selectedDate}`;
+            const specSummary = `Flavor: ${flavorName} | ${fulfillment} on ${formattedDate}`;
             const isCn = currentLang === 'cn';
             const name = isCn ? currentDetailProduct.nameCn : currentDetailProduct.nameEn;
 
@@ -1442,7 +1453,7 @@
                         ${fillingSectionHtml}
 
                         <div class="space-y-2.5">
-                            <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider">${isCn ? '3. 选择配送或自取日期 *' : '3. Delivery or Collection Date *'}</label>
+                            <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider">${isCn ? '3. 选择配送或自取日期 * (日/月/年 DD/MM/YYYY)' : '3. Delivery or Collection Date * (DD/MM/YYYY)'}</label>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 <select id="detailFulfillmentType" class="px-4 py-3 rounded-2xl border border-stone-300 bg-white text-sm font-medium text-stone-800 focus:ring-2 focus:ring-rose-500">
                                     <option value="Nottingham Local Delivery">Nottingham Local Delivery</option>
@@ -1507,6 +1518,7 @@
             }
 
             const selectedDate = document.getElementById('detailDate').value;
+            const formattedDate = formatDateUK(selectedDate);
             const selectedSizeInput = document.querySelector('input[name="detailSize"]:checked');
             const size = selectedSizeInput.value;
             const price = parseFloat(selectedSizeInput.getAttribute('data-price'));
@@ -1523,7 +1535,7 @@
             }
 
             const writingText = cakeWriting ? ` | Cake Writing: "${cakeWriting}"` : '';
-            const specSummary = `${size}${fillingText}${writingText} | ${fulfillment} on ${selectedDate}`;
+            const specSummary = `${size}${fillingText}${writingText} | ${fulfillment} on ${formattedDate}`;
             const name = isCn ? currentDetailProduct.nameCn : currentDetailProduct.nameEn;
 
             const existing = cart.find(item => item.id === currentDetailProduct.id && item.size === specSummary);
@@ -1686,7 +1698,12 @@
                 pay_method: selectedPay.toUpperCase()
             };
 
-            emailjs.send('service_rxqptjs', 'YOUR_TEMPLATE_ID', templateParams).catch(err => console.log('EmailJS error:', err));
+            emailjs.send('service_rxqptjs', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
 
             let summaryText = `🎂 mitangnotts Order (Sent to dieyuegege@hotmail.com)\nCustomer: ${first} ${last}\nContact: ${contact}\nNote: ${address}\n\nItems:\n${itemsText}\nTotal: £${subtotal.toFixed(2)}`;
             if (navigator.clipboard) {
