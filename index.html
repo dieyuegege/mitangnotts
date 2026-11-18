@@ -23,9 +23,11 @@
         h1, h2, h3, .font-serif {
             font-family: 'Playfair Display', serif;
         }
-        /* 鼠标悬停下拉菜单 */
-        .dropdown:hover .dropdown-menu {
-            display: block;
+        /* 鼠标悬停下拉菜单 (仅在电脑端生效) */
+        @media (min-width: 768px) {
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
         }
         details > summary {
             list-style: none;
@@ -35,7 +37,7 @@
         }
     </style>
 </head>
-<body class="bg-[#fff9f9] min-h-screen flex flex-col selection:bg-rose-100 selection:text-rose-900">
+<body class="bg-[#fff9f9] min-h-screen flex flex-col selection:bg-rose-100 selection:text-rose-900" onclick="handleBodyClick(event)">
 
     <!-- Top Announcement Bar -->
     <div class="bg-[#7c2d12] text-rose-50 text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide">
@@ -73,17 +75,17 @@
                     </div>
                 </div>
 
-                <!-- Dessert Dropdown -->
-                <div class="relative dropdown py-4">
-                    <a href="#boxed-cakes" onclick="event.preventDefault(); filterDessert('all'); showCatalogView();" class="hover:text-rose-700 transition-colors flex items-center gap-1">
+                <!-- Dessert Dropdown (支持点击切换) -->
+                <div class="relative dessert-dropdown py-4">
+                    <button onclick="toggleDessertDropdown(event)" class="hover:text-rose-700 transition-colors flex items-center gap-1 bg-transparent border-none cursor-pointer text-sm font-semibold text-stone-700">
                         <span class="nav-dessert">Dessert</span> 
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </a>
-                    <div class="dropdown-menu hidden absolute top-full left-0 w-48 bg-white border border-rose-100 shadow-xl rounded-2xl py-2 z-50">
-                        <a href="#boxed-cakes" onclick="event.preventDefault(); filterDessert('boxes'); showCatalogView();" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-sub-boxes cursor-pointer">Boxes Cakes</a>
-                        <a href="#boxed-cakes" onclick="event.preventDefault(); filterDessert('crepe'); showCatalogView();" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-sub-crepe cursor-pointer">Crepe Rolls</a>
-                        <a href="#boxed-cakes" onclick="event.preventDefault(); filterDessert('slices'); showCatalogView();" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-sub-slices cursor-pointer">Cake Slices</a>
-                        <a href="#boxed-cakes" onclick="event.preventDefault(); filterDessert('others'); showCatalogView();" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-sub-others cursor-pointer">Others</a>
+                    </button>
+                    <div id="dessertDropdownMenu" class="hidden absolute top-full left-0 w-48 bg-white border border-rose-100 shadow-xl rounded-2xl py-2 z-50">
+                        <a href="#boxed-cakes" onclick="filterDessert('boxes'); showCatalogView(); toggleDessertDropdown(event);" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-sub-boxes cursor-pointer">Boxes Cakes</a>
+                        <a href="#boxed-cakes" onclick="filterDessert('crepe'); showCatalogView(); toggleDessertDropdown(event);" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-sub-crepe cursor-pointer">Crepe Rolls</a>
+                        <a href="#boxed-cakes" onclick="filterDessert('slices'); showCatalogView(); toggleDessertDropdown(event);" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-sub-slices cursor-pointer">Cake Slices</a>
+                        <a href="#boxed-cakes" onclick="filterDessert('others'); showCatalogView(); toggleDessertDropdown(event);" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-sub-others cursor-pointer">Others</a>
                     </div>
                 </div>
 
@@ -355,6 +357,23 @@
         let activeDessertFilter = 'all';
         let cart = [];
         let currentDetailProduct = null;
+
+        // 点击空白处关闭 Dessert 下拉菜单
+        function handleBodyClick(event) {
+            const dropdown = document.querySelector('.dessert-dropdown');
+            const menu = document.getElementById('dessertDropdownMenu');
+            if (dropdown && menu && !dropdown.contains(event.target)) {
+                menu.classList.add('hidden');
+            }
+        }
+
+        function toggleDessertDropdown(event) {
+            event.stopPropagation();
+            const menu = document.getElementById('dessertDropdownMenu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
 
         function toggleMobileMenu(show) {
             const menu = document.getElementById('mobileMenuDrawer');
@@ -873,7 +892,7 @@
             document.querySelector('.delivery-sec-title').textContent = isCn ? '配送与自取说明' : 'Delivery & Pickup';
             const delList = document.querySelector('.delivery-sec-list').children;
             delList[0].textContent = isCn ? '• 同城配送：4英里以内3.00镑，4–8英里6.00镑，10英里以上请联系我们。' : '• Local Delivery: Within 4 miles is £3.00, 4–8 miles is £6.00, over 10 miles please contact us.';
-            delList[1].textContent = isCn ? '• 自取：West Bridgford 工作室自提（周一至周日 12pm–6pm）。' : '• Collection: Pickup available at West Bridgford (Mon–Sun 12pm–6pm).';
+            delList[1].textContent = isCn ? '• 自提：West Bridgford 工作室自提（周一至周日 12pm–6pm）。' : '• Collection: Pickup available at West Bridgford (Mon–Sun 12pm–6pm).';
             delList[2].textContent = isCn ? '• 预定时间：次日达蛋糕支持下午1点前下单次日达；其他定制蛋糕需至少提前3天预定。' : '• Notice Period: Next Day Cakes require booking before 1pm. All other custom cakes require 3 days notice.';
 
             document.querySelector('.allergy-sec-title').textContent = isCn ? '过敏原提示' : 'Allergy Information';
@@ -1667,7 +1686,6 @@
                 pay_method: selectedPay.toUpperCase()
             };
 
-            // 使用您提供的 Service ID: service_rxqptjs 和 Template ID (请替换 template_xxxxxx)
             emailjs.send('service_rxqptjs', 'YOUR_TEMPLATE_ID', templateParams).catch(err => console.log('EmailJS error:', err));
 
             let summaryText = `🎂 mitangnotts Order (Sent to dieyuegege@hotmail.com)\nCustomer: ${first} ${last}\nContact: ${contact}\nNote: ${address}\n\nItems:\n${itemsText}\nTotal: £${subtotal.toFixed(2)}`;
