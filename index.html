@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mitangnotts | Professional Fresh Cream Cakes Nottingham</title>
+    <!-- Tailwind CSS v4 -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("YOUR_PUBLIC_KEY");
+       })();
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fff9f9;
+            color: #2d2d2d;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* 鼠标悬停下拉菜单 */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-[#fff9f9] min-h-screen flex flex-col selection:bg-rose-100 selection:text-rose-900">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-[#7c2d12] text-rose-50 text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide">
+        <span class="announcement-text">✨ Handcrafted Fresh Cream Cakes in Nottingham • Next-day for Next Day Cakes, 3 days notice for other cakes ✨</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-rose-100 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" onclick="showCatalogView()" class="flex items-center space-x-3 group">
+                <img src="logo.jpg" alt="mitangnotts logo" class="w-12 h-12 rounded-full object-cover shadow-xs border border-rose-200 group-hover:scale-105 transition-transform" onerror="this.style.display='none'">
+                <div>
+                    <span class="text-xl sm:text-2xl font-serif font-bold text-stone-800 tracking-tight">mitangnotts</span>
+                    <span class="block text-[10px] text-rose-600 font-medium tracking-widest uppercase">Nottingham Fresh Cream Cakes</span>
+                </div>
+            </a>
+
+            <!-- Navigation & Hover Dropdown (Desktop) -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-stone-700">
+                <!-- Birthday Cakes Dropdown -->
+                <div class="relative dropdown py-4">
+                    <a href="#birthday-cakes" onclick="filterCategory('all'); showCatalogView();" class="hover:text-rose-700 transition-colors flex items-center gap-1">
+                        <span class="nav-birthday">Birthday Cakes</span> 
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                    <div class="dropdown-menu hidden absolute top-full left-0 w-64 bg-white border border-rose-100 shadow-xl rounded-2xl py-2 z-50">
+                        <a href="#birthday-cakes" onclick="filterCategory('fruit')" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-cat-fruit">Fruit Cakes</a>
+                        <a href="#birthday-cakes" onclick="filterCategory('nextday')" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-cat-nextday">Next Day Cakes</a>
+                        <a href="#birthday-cakes" onclick="filterCategory('heart')" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-cat-heart">Heart Cakes</a>
+                        <a href="#birthday-cakes" onclick="filterCategory('sculpted')" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-cat-sculpted">Sculpted Cakes</a>
+                        <a href="#birthday-cakes" onclick="filterCategory('specialty')" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-cat-specialty">Specialty-Flavored Cakes</a>
+                        <div class="my-1 border-t border-rose-100"></div>
+                        <a href="#birthday-cakes" onclick="filterCategory('fixed4')" class="block px-4 py-2 text-xs font-bold text-rose-700 bg-rose-50/50 hover:bg-rose-100 nav-cat-fixed4">4-Inch Fixed Designs</a>
+                        <a href="#birthday-cakes" onclick="filterCategory('fixed5')" class="block px-4 py-2 text-xs font-bold text-rose-700 bg-rose-50/50 hover:bg-rose-100 nav-cat-fixed5">5-Inch Fixed Designs</a>
+                    </div>
+                </div>
+
+                <!-- Dessert Dropdown -->
+                <div class="relative dropdown py-4">
+                    <a href="#boxed-cakes" onclick="filterDessert('all'); showCatalogView();" class="hover:text-rose-700 transition-colors flex items-center gap-1">
+                        <span class="nav-dessert">Dessert</span> 
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                    <div class="dropdown-menu hidden absolute top-full left-0 w-48 bg-white border border-rose-100 shadow-xl rounded-2xl py-2 z-50">
+                        <a href="#boxed-cakes" onclick="filterDessert('boxes')" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-sub-boxes">Boxes Cakes</a>
+                        <a href="#boxed-cakes" onclick="filterDessert('crepe')" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-sub-crepe">Crepe Rolls</a>
+                        <a href="#boxed-cakes" onclick="filterDessert('slices')" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-sub-slices">Cake Slices</a>
+                        <a href="#boxed-cakes" onclick="filterDessert('others')" class="block px-4 py-2 text-xs text-stone-700 hover:bg-rose-50 hover:text-rose-700 nav-sub-others">Others</a>
+                    </div>
+                </div>
+
+                <a href="#delivery-section" onclick="showCatalogView()" class="hover:text-rose-700 transition-colors nav-delivery">Delivery & Pickup</a>
+                <a href="#allergy-section" onclick="showCatalogView()" class="hover:text-rose-700 transition-colors nav-allergy">Allergy</a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-full border border-rose-200 text-xs font-semibold text-rose-800 bg-rose-50 hover:bg-rose-100 transition-colors flex items-center space-x-1 cursor-pointer">
+                    <span id="langLabel">中文 / EN</span>
+                </button>
+                <button onclick="toggleCartDrawer(true)" class="relative p-2.5 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-800 transition-colors flex items-center space-x-2 cursor-pointer">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    <span id="cartBadge" class="absolute -top-1 -right-1 bg-rose-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-xs">0</span>
+                </button>
+                <!-- Mobile Hamburger Menu Button (三道杠按钮) -->
+                <button onclick="toggleMobileMenu(true)" class="md:hidden p-2.5 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-800 transition-colors cursor-pointer" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= MOBILE MENU DRAWER (移动端侧滑菜单) ================= -->
+    <div id="mobileMenuDrawer" class="fixed inset-0 z-50 bg-[#fffdfa] hidden flex flex-col">
+        <!-- Top bar of mobile menu -->
+        <div class="px-6 h-20 flex items-center justify-between border-b border-rose-100">
+            <span class="text-xl font-serif font-bold text-stone-900 tracking-tight">mitangnotts</span>
+            <button onclick="toggleMobileMenu(false)" class="p-2.5 rounded-full bg-rose-50 hover:bg-rose-100 text-stone-800 transition-colors cursor-pointer" aria-label="Close Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Menu list links -->
+        <div class="flex-grow overflow-y-auto px-6 py-4 divide-y divide-rose-100/60">
+            <!-- Order Online 带有折叠子菜单 -->
+            <div class="py-4">
+                <div onclick="toggleMobileSubmenu('mobileOrderSub')" class="flex items-center justify-between text-lg font-serif font-medium text-stone-900 cursor-pointer">
+                    <span class="m-order-online">Order Online</span>
+                    <svg class="w-5 h-5 text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </div>
+                <div id="mobileOrderSub" class="hidden pl-4 pt-3 space-y-3 text-sm text-stone-600">
+                    <a href="#birthday-cakes" onclick="filterCategory('all'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 m-sub-all">All Birthday Cakes</a>
+                    <a href="#birthday-cakes" onclick="filterCategory('fruit'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 nav-cat-fruit">Fruit Cakes</a>
+                    <a href="#birthday-cakes" onclick="filterCategory('nextday'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 nav-cat-nextday">Next Day Cakes</a>
+                    <a href="#birthday-cakes" onclick="filterCategory('heart'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 nav-cat-heart">Heart Cakes</a>
+                    <a href="#birthday-cakes" onclick="filterCategory('sculpted'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 nav-cat-sculpted">Sculpted Cakes</a>
+                    <a href="#birthday-cakes" onclick="filterCategory('specialty'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 nav-cat-specialty">Specialty-Flavored Cakes</a>
+                    <a href="#birthday-cakes" onclick="filterCategory('fixed4'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 nav-cat-fixed4">4-Inch Fixed Designs</a>
+                    <a href="#birthday-cakes" onclick="filterCategory('fixed5'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 nav-cat-fixed5">5-Inch Fixed Designs</a>
+                    <a href="#boxed-cakes" onclick="filterDessert('all'); toggleMobileMenu(false); showCatalogView();" class="block hover:text-rose-700 m-sub-dessert">Dessert & Boxes Cakes</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom view basket button -->
+        <div class="p-6 bg-white border-t border-rose-100">
+            <button onclick="toggleMobileMenu(false); toggleCartDrawer(true);" class="w-full py-4 rounded-xl bg-[#b89753] hover:bg-[#a38346] text-white font-medium text-base shadow-sm transition-all text-center tracking-wide m-view-basket cursor-pointer">
+                View basket
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= CATALOG VIEW (主列表视图) ================= -->
+    <div id="catalogView" class="flex-grow flex flex-col">
+        <!-- Hero Section -->
+        <section class="relative py-16 sm:py-24 bg-gradient-to-b from-rose-50/80 to-transparent" id="birthday-cakes">
+            <div class="max-w-5xl mx-auto px-4 text-center">
+                <span class="inline-block py-1 px-4 rounded-full bg-rose-100/80 text-rose-800 text-xs font-semibold tracking-wider uppercase mb-4 hero-subtitle">Artisanal Patisserie in Nottingham</span>
+                <h1 class="text-4xl sm:text-6xl font-serif font-bold text-stone-900 tracking-tight mb-6 hero-title">
+                    Light, Fresh & Beautiful Cream Cakes
+                </h1>
+                <p class="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-normal leading-relaxed mb-8 hero-desc">Whipped 100% pure dairy fresh cream with ultra-soft chiffon sponges.</p>
+                
+                <!-- 生日蛋糕分类筛选按钮 -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-2.5">
+                    <button onclick="filterCategory('all', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-rose-900 text-white shadow-sm cat-all cursor-pointer">All Cakes</button>
+                    <button onclick="filterCategory('fruit', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-white text-stone-700 hover:bg-rose-50 border border-rose-200 cat-fruit cursor-pointer">Fruit Cakes</button>
+                    <button onclick="filterCategory('nextday', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-white text-stone-700 hover:bg-rose-50 border border-rose-200 cat-nextday cursor-pointer">Next Day Cakes</button>
+                    <button onclick="filterCategory('heart', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-white text-stone-700 hover:bg-rose-50 border border-rose-200 cat-heart cursor-pointer">Heart Cakes</button>
+                    <button onclick="filterCategory('sculpted', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-white text-stone-700 hover:bg-rose-50 border border-rose-200 cat-sculpted cursor-pointer">Sculpted Cakes</button>
+                    <button onclick="filterCategory('specialty', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-white text-stone-700 hover:bg-rose-50 border border-rose-200 cat-specialty cursor-pointer">Specialty-Flavored Cakes</button>
+                    <button onclick="filterCategory('fixed4', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-white text-rose-800 hover:bg-rose-50 border border-rose-300 cat-fixed4 cursor-pointer">4-Inch Fixed Designs</button>
+                    <button onclick="filterCategory('fixed5', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-white text-rose-800 hover:bg-rose-50 border border-rose-300 cat-fixed5 cursor-pointer">5-Inch Fixed Designs</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Grid -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+            
+            <!-- Dessert Section (Boxes Cakes, Crepe Rolls, Cake Slices & Others) -->
+            <div id="boxed-cakes" class="mt-24 pt-12 border-t border-rose-100">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
+                    <div>
+                        <h2 class="text-3xl font-serif font-bold text-stone-900 mb-1 boxed-title">Dessert & Boxes Cakes</h2>
+                        <p class="text-stone-500 text-sm boxed-sub">Handcrafted Boxes Cakes, Crepe Rolls & Cake Slices</p>
+                    </div>
+                    <!-- Dessert 子分类标签 -->
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="filterDessert('all', this)" class="dessert-tab px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-900 text-white transition-all tab-all cursor-pointer">All Desserts</button>
+                        <button onclick="filterDessert('boxes', this)" class="dessert-tab px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-stone-700 border border-rose-200 hover:bg-rose-50 tab-boxes cursor-pointer">Boxes Cakes</button>
+                        <button onclick="filterDessert('crepe', this)" class="dessert-tab px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-stone-700 border border-rose-200 hover:bg-rose-50 tab-crepe cursor-pointer">Crepe Rolls</button>
+                        <button onclick="filterDessert('slices', this)" class="dessert-tab px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-stone-700 border border-rose-200 hover:bg-rose-50 tab-slices cursor-pointer">Cake Slices</button>
+                        <button onclick="filterDessert('others', this)" class="dessert-tab px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-stone-700 border border-rose-200 hover:bg-rose-50 tab-others cursor-pointer">Others</button>
+                    </div>
+                </div>
+                <div id="boxedGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+            </div>
+
+            <!-- Delivery & Pickup / Allergy Info Section -->
+            <div class="mt-24 grid grid-cols-1 md:grid-cols-2 gap-8 pt-12 border-t border-rose-100">
+                <div id="delivery-section" class="bg-white p-8 rounded-3xl border border-rose-100 shadow-xs space-y-4">
+                    <h3 class="text-xl font-serif font-bold text-rose-900 delivery-sec-title">Delivery & Pickup</h3>
+                    <ul class="text-sm text-stone-600 space-y-2 leading-relaxed delivery-sec-list">
+                        <li>• Collection: Pickup available at West Bridgford (Mon–Sun 12pm–6pm).</li>
+                        <li>• Local Delivery: Within 4 miles is £3.00, 4–8 miles is £6.00, over 10 miles please contact us.</li>
+                        <li>• Notice Period: Next Day Cakes require booking before 1pm. All other custom cakes require 3 days notice.</li>
+                    </ul>
+                </div>
+                <div id="allergy-section" class="bg-white p-8 rounded-3xl border border-rose-100 shadow-xs space-y-4">
+                    <h3 class="text-xl font-serif font-bold text-rose-900 allergy-sec-title">Allergy Information</h3>
+                    <ul class="text-sm text-stone-600 space-y-2 leading-relaxed allergy-sec-list">
+                        <li>• Main Allergens: Contains Wheat (Gluten), Eggs, Milk (Dairy).</li>
+                        <li>• Facility: Prepared in a kitchen that handles nuts and soy.</li>
+                        <li>• Cream: 100% animal dairy fresh cream, low sugar.</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ================= PRODUCT DETAIL VIEW (独立商品详情页) ================= -->
+    <div id="productDetailView" class="hidden flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full">
+        <button onclick="showCatalogView()" class="inline-flex items-center space-x-2 text-sm font-semibold text-stone-600 hover:text-rose-700 mb-6 transition-colors cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <span class="back-btn-text">Back to All Cakes</span>
+        </button>
+
+        <div id="detailPageContent" class="bg-white rounded-3xl border border-rose-100 shadow-sm p-6 sm:p-10"></div>
+    </div>
+
+    <!-- Shopping Bag Drawer -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs hidden transition-opacity">
+        <div class="absolute inset-y-0 right-0 max-w-md w-full bg-white shadow-2xl flex flex-col transform transition-transform">
+            <div class="p-6 border-b border-stone-100 flex items-center justify-between bg-rose-50/50">
+                <h2 class="text-xl font-serif font-bold text-stone-900 cart-title">Your Shopping Bag</h2>
+                <button onclick="toggleCartDrawer(false)" class="p-2 rounded-full hover:bg-stone-200/60 text-stone-600 transition-colors cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="cartItemsContainer" class="flex-grow overflow-y-auto p-6 space-y-4 divide-y divide-stone-100"></div>
+            <div class="p-6 border-t border-stone-100 bg-stone-50/50 space-y-4">
+                <div class="flex items-center justify-between text-base font-semibold text-stone-900">
+                    <span class="subtotal-label">Subtotal:</span>
+                    <span id="cartSubtotal" class="text-rose-700 text-xl font-serif">£0.00</span>
+                </div>
+                <button onclick="openCheckout()" class="w-full py-3.5 px-6 rounded-2xl bg-rose-700 hover:bg-rose-800 text-white font-semibold shadow-md transition-all flex items-center justify-center space-x-2 checkout-btn-text cursor-pointer">
+                    <span>Proceed to Secure Checkout</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs hidden flex items-center justify-center p-2 sm:p-6">
+        <div class="bg-white rounded-3xl max-w-5xl w-full overflow-hidden shadow-2xl flex flex-col lg:flex-row max-h-[95vh]">
+            <div class="flex-1 p-6 sm:p-8 overflow-y-auto space-y-6">
+                <div class="flex justify-between items-center border-b border-stone-100 pb-4">
+                    <div class="flex items-center space-x-3">
+                        <h3 class="text-2xl font-serif font-bold text-stone-900 chk-title">Secure Checkout</h3>
+                        <button onclick="openCartFromCheckout()" class="px-3 py-1 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-800 text-xs font-semibold transition-colors flex items-center gap-1 cursor-pointer">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                            <span class="chk-view-cart">View Cart</span>
+                        </button>
+                    </div>
+                    <button onclick="closeCheckout()" class="lg:hidden text-stone-400 hover:text-stone-600 cursor-pointer"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-700 mb-1 chk-contact-label">Contact Email / Phone / WeChat</label>
+                        <input type="text" id="chkContact" placeholder="e.g. 07123456789 or email@gmail.com" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-rose-500 focus:outline-hidden">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-700 mb-1 chk-first-label">First Name</label>
+                            <input type="text" id="chkFirst" placeholder="Jessica" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-rose-500 focus:outline-hidden">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-700 mb-1 chk-last-label">Last Name</label>
+                            <input type="text" id="chkLast" placeholder="Smith" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-rose-500 focus:outline-hidden">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-700 mb-1 chk-addr-label">Nottingham Delivery Address & Cake Writing</label>
+                        <textarea id="chkAddress" rows="2" placeholder="Postcode (e.g. NG2) if delivery, or Happy Birthday message..." class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:ring-2 focus:ring-rose-500 focus:outline-hidden"></textarea>
+                    </div>
+
+                    <!-- 支付方式选择 -->
+                    <div class="space-y-2 pt-2">
+                        <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider chk-pay-title">Select Payment Method</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <label class="pay-option border-2 border-blue-600 bg-blue-50/50 p-3.5 rounded-xl flex items-center space-x-3 cursor-pointer transition-all" onclick="selectPayStyle(this)">
+                                <input type="radio" name="payMethod" value="paypal" checked class="text-blue-600 focus:ring-blue-500">
+                                <div>
+                                    <span class="text-xs font-bold text-blue-900 block">PayPal</span>
+                                    <span class="text-[10px] text-blue-700 chk-pay-paypal-sub">Instant Pay (£ GBP)</span>
+                                </div>
+                            </label>
+                            <label class="pay-option border border-stone-200 hover:border-stone-300 p-3.5 rounded-xl flex items-center space-x-3 cursor-pointer transition-all" onclick="selectPayStyle(this)">
+                                <input type="radio" name="payMethod" value="card" class="text-rose-600 focus:ring-rose-500">
+                                <div>
+                                    <span class="text-xs font-bold text-stone-800 block chk-pay-card-title">Debit / Credit Card</span>
+                                    <span class="text-[10px] text-stone-500 chk-pay-card-sub">Via PayPal Guest</span>
+                                </div>
+                            </label>
+                            <label class="pay-option border border-stone-200 hover:border-stone-300 p-3.5 rounded-xl flex items-center space-x-3 cursor-pointer transition-all" onclick="selectPayStyle(this)">
+                                <input type="radio" name="payMethod" value="transfer" class="text-rose-600 focus:ring-rose-500">
+                                <div>
+                                    <span class="text-xs font-bold text-stone-800 block chk-pay-transfer-title">UK Bank Transfer</span>
+                                    <span class="text-[10px] text-stone-500">Lady C Kitchen</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 英国银行转账详细信息提示框 -->
+                    <div id="bankInfoBox" class="hidden bg-amber-50 border border-amber-200 p-4 rounded-xl text-xs space-y-1 text-amber-900">
+                        <p class="font-bold chk-bank-title">UK Bank Transfer Details:</p>
+                        <p>• <strong>Business Account:</strong> Lady C Kitchen</p>
+                        <p>• <strong>Sort Code:</strong> 401800</p>
+                        <p>• <strong>Account No.:</strong> 20567329</p>
+                        <p class="text-[10px] text-amber-700 mt-1 chk-bank-sub">*Please use your name as reference when transferring.</p>
+                    </div>
+                </div>
+
+                <button onclick="processPayment()" class="w-full py-4 rounded-2xl bg-[#0070ba] hover:bg-[#005ea6] text-white font-bold transition-all shadow-md text-base flex items-center justify-center gap-2 chk-submit-btn cursor-pointer">
+                    <span>Pay Now & Copy Order Details</span>
+                </button>
+            </div>
+
+            <!-- 右侧订单摘要 -->
+            <div class="w-full lg:w-96 bg-stone-50 p-6 sm:p-8 border-t lg:border-t-0 lg:border-l border-stone-200 flex flex-col justify-between">
+                <div class="space-y-6">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-serif font-bold text-stone-900 text-lg chk-summary-title">Order Summary</h4>
+                        <button onclick="closeCheckout()" class="hidden lg:block text-stone-400 hover:text-stone-600 cursor-pointer"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                    </div>
+                    <div id="checkoutSummaryItems" class="space-y-3 max-h-64 overflow-y-auto divide-y divide-stone-200/60"></div>
+                </div>
+                <div class="pt-6 border-t border-stone-200 space-y-2 mt-6">
+                    <div class="flex justify-between text-lg font-serif font-bold text-stone-900 pt-2 border-t border-stone-200">
+                        <span class="chk-total-label">Total due</span>
+                        <span id="checkoutTotalAmount" class="text-rose-700">£0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
+            <p class="text-lg font-serif font-semibold text-stone-200">mitangnotts 诺丁汉鲜奶油蛋糕</p>
+            <p class="text-xs footer-copy">Handcrafted with love in Nottingham, UK. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script Application -->
+    <script>
+        let currentLang = 'en';
+        let activeCategory = 'all';
+        let activeDessertFilter = 'all';
+        let cart = [];
+        let currentDetailProduct = null;
+
+        // 手机端菜单开关控制
+        function toggleMobileMenu(show) {
+            const menu = document.getElementById('mobileMenuDrawer');
+            if (show) {
+                menu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // 手机端二级菜单折叠展开
+        function toggleMobileSubmenu(id) {
+            const sub = document.getElementById(id);
+            if (sub.classList.contains('hidden')) {
+                sub.classList.remove('hidden');
+            } else {
+                sub.classList.add('hidden');
+            }
+        }
+
+        // 统一生成详情页的 Product Details、Allergy 和 Delivery 折叠面板（支持中英文）
+        function getAccordionHtml(isCn) {
+            return `
+                <div class="border-t border-stone-200 pt-4 space-y-2.5">
+                    <details class="group border border-stone-200 rounded-2xl overflow-hidden bg-stone-50/40" open>
+                        <summary class="flex items-center justify-between p-4 font-bold text-xs uppercase tracking-wider text-stone-800 cursor-pointer hover:bg-stone-100/70 transition-colors">
+                            <span>${isCn ? '产品详情 (Product Details)' : 'Product Details'}</span>
+                            <svg class="w-4 h-4 text-stone-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-4 pb-4 text-xs text-stone-600 space-y-1.5 border-t border-stone-200/60 pt-3 leading-relaxed">
+                            <p>• <strong>${isCn ? '蛋糕坯与奶油：' : 'Base & Cream:'}</strong> ${isCn ? '松软戚风蛋糕坯搭配 100% 纯动物新鲜淡奶油。' : 'Ultra-soft chiffon sponge layered with 100% animal dairy fresh cream.'}</p>
+                            <p>• <strong>${isCn ? '糖度：' : 'Sweetness:'}</strong> ${isCn ? '低糖健康配方，口感轻盈不腻。' : 'Lightly sweetened low-sugar recipe, refreshing and never cloying.'}</p>
+                            <p>• <strong>${isCn ? '保存方式：' : 'Storage:'}</strong> ${isCn ? '请务必置于 0–4°C 冰箱冷藏保存，建议在 48 小时内享用完毕以获得最佳口感。' : 'Keep refrigerated at 0–4°C at all times. Best enjoyed within 48 hours.'}</p>
+                        </div>
+                    </details>
+
+                    <details class="group border border-stone-200 rounded-2xl overflow-hidden bg-stone-50/40">
+                        <summary class="flex items-center justify-between p-4 font-bold text-xs uppercase tracking-wider text-stone-800 cursor-pointer hover:bg-stone-100/70 transition-colors">
+                            <span>${isCn ? '过敏原说明 (Allergy Information)' : 'Allergy Information'}</span>
+                            <svg class="w-4 h-4 text-stone-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-4 pb-4 text-xs text-stone-600 space-y-1.5 border-t border-stone-200/60 pt-3 leading-relaxed">
+                            <p>• <strong>${isCn ? '主要过敏原：' : 'Main Allergens:'}</strong> ${isCn ? '含有小麦（麸质）、鸡蛋、牛奶（乳制品）。' : 'Contains Wheat (Gluten), Eggs, and Milk (Dairy).'}</p>
+                            <p>• <strong>${isCn ? '交叉过敏原提示：' : 'Traces:'}</strong> ${isCn ? '制作厨房同时处理各类坚果及大豆制品，可能含有微量坚果成分。' : 'Prepared in a kitchen that handles nuts and soy; may contain traces.'}</p>
+                        </div>
+                    </details>
+
+                    <details class="group border border-stone-200 rounded-2xl overflow-hidden bg-stone-50/40">
+                        <summary class="flex items-center justify-between p-4 font-bold text-xs uppercase tracking-wider text-stone-800 cursor-pointer hover:bg-stone-100/70 transition-colors">
+                            <span>${isCn ? '配送与自取说明 (Delivery & Pickup)' : 'Delivery & Pickup'}</span>
+                            <svg class="w-4 h-4 text-stone-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-4 pb-4 text-xs text-stone-600 space-y-1.5 border-t border-stone-200/60 pt-3 leading-relaxed">
+                            <p>• <strong>${isCn ? '自取地点：' : 'Collection:'}</strong> ${isCn ? 'West Bridgford 工作室自取（周一至周日 12pm–6pm）。' : 'Pickup available at West Bridgford (Mon–Sun 12pm–6pm).'}</p>
+                            <p>• <strong>${isCn ? '诺丁汉同城配送：' : 'Local Delivery:'}</strong> ${isCn ? '4英里以内 £3.00，4–8英里 £6.00；超过10英里请联系客服。' : 'Within 4 miles is £3.00; 4–8 miles is £6.00; over 10 miles please contact us.'}</p>
+                        </div>
+                    </details>
+                </div>
+            `;
+        }
+
+        function getFruitPrices(base6) {
+            const b8 = base6 + 10;
+            const b10 = b8 + 15;
+            return {
+                '6 inch (2-4 pax)': base6,
+                '8 inch (6-8 pax)': b8,
+                '10 inch (10-12 pax)': b10
+            };
+        }
+
+        function getHeartPrices(base6) {
+            const b8 = base6 + 10;
+            const b10 = b8 + 15;
+            return {
+                '6 inch (2-4 pax)': base6,
+                '8 inch (6-8 pax)': b8,
+                '10 inch (10-12 pax)': b10
+            };
+        }
+
+        const priceNextDay = { '6 inch (2-4 pax)': 40, '8 inch (5-7 pax)': 50, '10 inch (8-10 pax)': 60 };
+        const priceFixed4 = { '4 inch Fixed Design (1-2 pax)': 30 };
+        const priceFixed5 = { '5 inch Fixed Design (2-3 pax)': 36 };
+
+        const fillingsList = [
+            { id: 'mango', en: 'Fresh Mango', cn: '新鲜芒果' },
+            { id: 'oreo', en: 'Oreo Crumbs', cn: '奥利奥碎' },
+            { id: 'milk-pudding', en: 'Milk Panna Cotta Pudding', cn: '牛奶奶冻布丁' },
+            { id: 'black-tea-pudding', en: 'Black Tea Panna Cotta Pudding', cn: '红茶奶冻布丁' },
+            { id: 'jasmine-matcha-pudding', en: 'Jasmine Matcha Panna Cotta Pudding', cn: '茉莉抹茶奶冻布丁' },
+            { id: 'choco-pudding', en: 'Chocolate Panna Cotta Pudding', cn: '巧克力奶冻布丁' }
+        ];
+
+        // 4寸固定款式专用夹心（芒果 / 奥利奥碎 / 罐头黄桃）
+        const fixed4FillingsList = [
+            { id: 'mango', en: 'Fresh Mango', cn: '新鲜芒果' },
+            { id: 'oreo', en: 'Oreo Crumbs', cn: '奥利奥碎' },
+            { id: 'canned-peach', en: 'Canned Peach', cn: '罐头黄桃' }
+        ];
+
+        // 5寸固定款式专用夹心（同水果蛋糕/常规蛋糕一致的 6 种丰富夹心选项）
+        const fixed5FillingsList = fillingsList;
+
+        // 盒子蛋糕系列数据（中号 500ml / 大号 709ml）
+        const boxesCakesList = [
+            { 
+                id: 'bx-1', 
+                dessertCategory: 'boxes',
+                image: '25.jpg', 
+                nameEn: 'Taro Paste & Mochi Box Cake', 
+                nameCn: '芋泥麻薯盒子蛋糕', 
+                descEn: 'Rich taro paste, chewy mochi & fresh cream (Medium: 500ml / Large: 709ml)', 
+                descCn: '细腻软糯芋泥、拉丝麻薯与动物奶油（中号 500ml / 大号 709ml）',
+                isBoxCake: true,
+                prices: { '中号 (500ml)': 6.50, '大号 (709ml)': 9.00 }
+            },
+            { 
+                id: 'bx-2', 
+                dessertCategory: 'boxes',
+                image: '26.jpg', 
+                nameEn: 'Black Rice Mochi Box Cake', 
+                nameCn: '血糯米麻薯盒子蛋糕', 
+                descEn: 'Sweet black rice, chewy mochi & layers of fresh cream (Medium: 500ml / Large: 709ml)', 
+                descCn: '软糯血糯米、麻薯与香甜奶油（中号 500ml / 大号 709ml）',
+                isBoxCake: true,
+                prices: { '中号 (500ml)': 6.50, '大号 (709ml)': 9.00 }
+            },
+            { 
+                id: 'bx-3', 
+                dessertCategory: 'boxes',
+                image: '27.jpg', 
+                nameEn: 'Classic Oreo Box Cake', 
+                nameCn: '奥利奥盒子蛋糕', 
+                descEn: 'Crunchy Oreo crumbs with silky whipped cream (Medium: 500ml / Large: 709ml)', 
+                descCn: '经典奥利奥碎与顺滑鲜奶油（中号 500ml / 大号 709ml）',
+                isBoxCake: true,
+                prices: { '中号 (500ml)': 6.00, '大号 (709ml)': 8.50 }
+            },
+            { 
+                id: 'bx-4', 
+                dessertCategory: 'boxes',
+                image: '28.jpg', 
+                nameEn: 'Black Sesame Soy Milk Box Cake', 
+                nameCn: '黑芝麻豆乳盒子蛋糕', 
+                descEn: 'Fragrant black sesame and smooth soy milk cream (Medium: 500ml / Large: 709ml)', 
+                descCn: '浓郁黑芝麻与香醇豆乳奶油（中号 500ml / 大号 709ml）',
+                isBoxCake: true,
+                prices: { '中号 (500ml)': 6.50, '大号 (709ml)': 9.00 }
+            },
+            { 
+                id: 'bx-5', 
+                dessertCategory: 'boxes',
+                image: '29.jpg', 
+                nameEn: 'Cocoa Sponge Oreo Box Cake', 
+                nameCn: '奥利奥盒子蛋糕（可可胚）', 
+                descEn: 'Rich cocoa chiffon sponge paired with Oreo crumbs (Medium: 500ml / Large: 709ml)', 
+                descCn: '浓郁可可戚风蛋糕胚搭配奥利奥（中号 500ml / 大号 709ml）',
+                isBoxCake: true,
+                prices: { '中号 (500ml)': 6.50, '大号 (709ml)': 9.00 }
+            },
+            { 
+                id: 'bx-6', 
+                dessertCategory: 'boxes',
+                image: '30.jpg', 
+                nameEn: 'Matcha Oreo Box Cake', 
+                nameCn: '抹茶奥利奥盒子蛋糕', 
+                descEn: 'Uji matcha cream layered with crushed Oreos (Medium: 500ml / Large: 709ml)', 
+                descCn: '宇治抹茶奶油搭配奥利奥碎（中号 500ml / 大号 709ml）',
+                isBoxCake: true,
+                prices: { '中号 (500ml)': 6.50, '大号 (709ml)': 9.00 }
+            },
+            { 
+                id: 'bx-7', 
+                dessertCategory: 'boxes',
+                image: '31.jpg', 
+                nameEn: 'Fresh Mango Box Cake', 
+                nameCn: '芒果盒子蛋糕', 
+                descEn: 'Sweet ripe mango chunks and fresh dairy cream (Medium: 500ml / Large: 709ml)', 
+                descCn: '新鲜香甜芒果块与轻盈鲜奶油（中号 500ml / 大号 709ml）',
+                isBoxCake: true,
+                prices: { '中号 (500ml)': 6.00, '大号 (709ml)': 8.50 }
+            },
+            { 
+                id: 'bx-8', 
+                dessertCategory: 'boxes',
+                image: '32.jpg', 
+                nameEn: 'Durian & Mango Duo Box Cake', 
+                nameCn: '榴芒盒子蛋糕', 
+                descEn: 'Premium durian puree combined with sweet mango chunks (Medium: 500ml / Large: 709ml)', 
+                descCn: '精选金枕榴莲果泥与香甜芒果双拼（中号 500ml / 大号 709ml）',
+                isBoxCake: true,
+                prices: { '中号 (500ml)': 7.50, '大号 (709ml)': 10.50 }
+            },
+            { 
+                id: 'bx-9', 
+                dessertCategory: 'boxes',
+                image: '33.jpg', 
+                nameEn: 'Boya Juexian Jasmine Tea Box Cake', 
+                nameCn: '伯牙绝弦盒子蛋糕', 
+                descEn: 'Fragrant jasmine green tea infused cream (Medium: 500ml / Large: 709ml)', 
+                descCn: '清新伯牙绝弦茉莉茶香奶油（中号 500ml / 大号 709ml）',
+                isBoxCake: true,
+                prices: { '中号 (500ml)': 6.50, '大号 (709ml)': 9.00 }
+            },
+            { 
+                id: 'bx-10', 
+                dessertCategory: 'boxes',
+                image: '34.jpg', 
+                nameEn: 'Matcha Strawberry Box Cake', 
+                nameCn: '抹茶草莓盒子蛋糕', 
+                descEn: 'Uji matcha cream layered with fresh juicy strawberries (Medium: 500ml / Large: 709ml)', 
+                descCn: '浓郁宇治抹茶奶油搭配新鲜多汁草莓（中号 500ml / 大号 709ml）',
+                isBoxCake: true,
+                prices: { '中号 (500ml)': 6.50, '大号 (709ml)': 9.00 }
+            }
+        ];
+
+        // 毛巾卷多口味选项与价格定义
+        const crepeRollFlavors = [
+            { id: 'oreo', en: 'Oreo Crepe Roll', cn: '奥利奥毛巾卷', price: 8.00 },
+            { id: 'mango', en: 'Mango Crepe Roll', cn: '芒果毛巾卷', price: 8.00 },
+            { id: 'jasmine-matcha-pudding', en: 'Jasmine Matcha Panna Cotta Crepe Roll', cn: '茉莉抹茶奶冻毛巾卷', price: 8.00 },
+            { id: 'taro-porkfloss-mochi', en: 'Taro Paste & Pork Floss Mochi Crepe Roll', cn: '芋泥肉松麻薯毛巾卷', price: 8.50 },
+            { id: 'black-sesame-soymilk', en: 'Black Sesame Soy Milk Crepe Roll', cn: '黑芝麻豆乳毛巾卷', price: 8.50 },
+            { id: 'matcha-oreo', en: 'Matcha Oreo Crepe Roll', cn: '抹茶奥利奥毛巾卷', price: 8.50 },
+            { id: 'matcha-nama-choco', en: 'Matcha Nama Chocolate Crepe Roll', cn: '抹茶生巧毛巾卷', price: 8.50 },
+            { id: 'matcha-strawberry', en: 'Matcha Strawberry Crepe Roll', cn: '抹茶草莓毛巾卷', price: 8.50 },
+            { id: 'matcha-yuzu-curd', en: 'Matcha Yuzu Curd Crepe Roll', cn: '抹茶柚子凝乳毛巾卷', price: 8.50 },
+            { id: 'pistachio-lemon-curd', en: 'Pistachio Lemon Curd Crepe Roll', cn: '开心果柠檬凝乳毛巾卷', price: 8.50 },
+            { id: 'earl-grey-caramel-chestnut', en: 'Earl Grey Caramel Chestnut Crepe Roll', cn: '伯爵红茶焦糖栗子毛巾卷', price: 8.50 },
+            { id: 'triple-mix', en: 'Triple Mix Crepe Roll (Mango / Strawberry / Oreo)', cn: '三拼毛巾卷（芒果 / 草莓 / 奥利奥）', price: 9.00 },
+            { id: 'taro-porkfloss', en: 'Taro Paste & Pork Floss Crepe Roll', cn: '芋泥肉松毛巾卷', price: 9.00 },
+            { id: 'durian', en: 'Durian Crepe Roll', cn: '榴莲毛巾卷', price: 9.00 },
+            { id: 'durian-mango', en: 'Durian & Mango Crepe Roll', cn: '榴芒毛巾卷', price: 9.00 }
+        ];
+
+        // 蛋糕切块（Cake Slices）系列数据
+        const cakeSlicesList = [
+            {
+                id: 'sl-1',
+                dessertCategory: 'slices',
+                image: '38.jpg',
+                nameEn: 'Matcha Mille-Crepe Slice (1/8)',
+                nameCn: '抹茶千层切块',
+                descEn: 'Delicate handmade Uji matcha mille-crepe slice (1/8 slice)',
+                descCn: '细腻宇治抹茶手作千层切块（1/8块）',
+                isSliceCake: true,
+                prices: { '1/8 Slice': 7.50 }
+            },
+            {
+                id: 'sl-2',
+                dessertCategory: 'slices',
+                image: '39.jpg',
+                nameEn: 'Earl Grey Mille-Crepe Slice (1/8)',
+                nameCn: '伯爵红茶千层切块',
+                descEn: 'Fragrant British Earl Grey tea mille-crepe slice (1/8 slice)',
+                descCn: '香浓英式伯爵红茶千层切块（1/8块）',
+                isSliceCake: true,
+                prices: { '1/8 Slice': 7.00 }
+            },
+            {
+                id: 'sl-3',
+                dessertCategory: 'slices',
+                image: '40.jpg',
+                nameEn: 'Pistachio Raspberry Double Crepe Slice (1/8)',
+                nameCn: '开心果树莓双重千层切块',
+                descEn: 'Rich pistachio and tangy raspberry double layer crepe slice (1/8 slice)',
+                descCn: '开心果与酸甜树莓双拼千层切块（1/8块）',
+                isSliceCake: true,
+                prices: { '1/8 Slice': 7.50 }
+            },
+            {
+                id: 'sl-4',
+                dessertCategory: 'slices',
+                image: '41.jpg',
+                nameEn: 'Durian Mille-Crepe Slice (1/8)',
+                nameCn: '榴莲千层切块',
+                descEn: 'Premium golden pillow durian puree mille-crepe slice (1/8 slice)',
+                descCn: '精选金枕榴莲果泥千层切块（1/8块）',
+                isSliceCake: true,
+                prices: { '1/8 Slice': 9.00 }
+            },
+            {
+                id: 'sl-5',
+                dessertCategory: 'slices',
+                image: '42.jpg',
+                nameEn: 'Dubai Chocolate Pistachio Crepe Slice (1/8)',
+                nameCn: '迪拜巧克力开心果千层切块',
+                descEn: 'Trendy Dubai chocolate & pistachio rich crepe slice (1/8 slice)',
+                descCn: '网红迪拜巧克力开心果浓郁千层切块（1/8块）',
+                isSliceCake: true,
+                prices: { '1/8 Slice': 8.00 }
+            },
+            {
+                id: 'sl-6',
+                dessertCategory: 'slices',
+                image: '44.jpg',
+                nameEn: 'Taro Paste & Pork Floss Cake Slice (1/8)',
+                nameCn: '芋泥肉松蛋糕切块',
+                descEn: 'Savory pork floss and smooth taro paste sponge cake slice (1/8 slice)',
+                descCn: '咸香肉松与细腻芋泥戚风蛋糕切块（1/8块）',
+                isSliceCake: true,
+                prices: { '1/8 Slice': 7.00 }
+            },
+            {
+                id: 'sl-7',
+                dessertCategory: 'slices',
+                image: '45.jpg',
+                nameEn: 'Matcha Nonet Slice (1/8)',
+                nameCn: '抹茶九重奏切块',
+                descEn: 'Ultimate multi-layered Uji matcha specialty cake slice (1/8 slice)',
+                descCn: '极致多重口感宇治抹茶九重奏切块（1/8块）',
+                isSliceCake: true,
+                prices: { '1/8 Slice': 9.00 }
+            },
+            {
+                id: 'sl-8',
+                dessertCategory: 'slices',
+                image: '46.jpg',
+                nameEn: 'Matcha Yuzu Curd Cake Slice (1/8)',
+                nameCn: '抹茶柚子凝乳蛋糕切块',
+                descEn: 'Refreshing Japanese yuzu curd and matcha cream cake slice (1/8 slice)',
+                descCn: '清新日式柚子凝乳与抹茶奶油蛋糕切块（1/8块）',
+                isSliceCake: true,
+                prices: { '1/8 Slice': 7.50 }
+            },
+            {
+                id: 'sl-9',
+                dessertCategory: 'slices',
+                image: '47.jpg',
+                nameEn: 'Jasmine Tea Cake Slice (1/8)',
+                nameCn: '茉莉蛋糕切块',
+                descEn: 'Delicate jasmine green tea infused fresh cream cake slice (1/8 slice)',
+                descCn: '清新茉莉茶香淡雅鲜奶油蛋糕切块（1/8块）',
+                isSliceCake: true,
+                prices: { '1/8 Slice': 8.00 }
+            }
+        ];
+
+        const boxedCakes = [
+            ...boxesCakesList,
+            { 
+                id: 'cr-1', 
+                dessertCategory: 'crepe',
+                image: '6-2.jpg', 
+                nameEn: 'Handcrafted Mille-Crêpe Roll', 
+                nameCn: '手作千层毛巾卷系列', 
+                descEn: 'Delicate handmade mille-crêpe rolls with various rich artisan fillings.', 
+                descCn: '细腻千层蛋皮包裹丰富手作夹心，多款人气口味可选。',
+                isCrepeRoll: true,
+                flavors: crepeRollFlavors
+            },
+            ...cakeSlicesList
+        ];
+
+        const products = [
+            // --- 1. Fruit Cakes ---
+            { id: 'fc-1', category: 'fruit', image: '1.jpg', nameEn: 'Classic Strawberry Shortcake', nameCn: '经典鲜草莓奶油蛋糕', descEn: 'Layers of fresh Scottish strawberries and light Chantilly cream.', descCn: '精选新鲜多汁草莓，搭配丝滑香缇奶油。', prices: getFruitPrices(41) },
+            { id: 'fc-2', category: 'fruit', image: '2.jpg', nameEn: 'Shine Muscat Green Grape Cake', nameCn: '阳光玫瑰青提奶油蛋糕', descEn: 'Juicy crisp Shine Muscat grapes nested in premium cream sponge.', descCn: '清甜爆汁的阳光玫瑰青提。', prices: getFruitPrices(55) },
+            { id: 'fc-3', category: 'fruit', image: '3.jpg', nameEn: 'Mango Passionfruit Delight', nameCn: '芒果百香果清新蛋糕', descEn: 'Sweet ripe Alfonso mango chunks with a hint of passionfruit zest.', descCn: '浓郁金枕芒果肉。', prices: getFruitPrices(41) },
+            { id: 'fc-4', category: 'fruit', image: '4.jpg', nameEn: 'Mixed Berry Garden Cake', nameCn: '森林混合浆果奶油蛋糕', descEn: 'A lush garden of raspberries, blueberries, and strawberries.', descCn: '覆盆子、蓝莓与草莓酸甜盛宴。', prices: getFruitPrices(45) },
+            { id: 'fc-5', category: 'fruit', image: '5.jpg', nameEn: 'Peach Oolong Fruit Cake', nameCn: '白桃乌龙茶香水果蛋糕', descEn: 'Fragrant white peach chunks paired with light oolong tea cream.', descCn: '清甜白桃果肉与乌龙茶香奶油。', prices: getFruitPrices(41) },
+            { id: 'fc-6', category: 'fruit', image: '6.jpg', nameEn: 'Exotic Tropical Fruit Gateau', nameCn: '热带风情鲜果奶油蛋糕', descEn: 'Assorted seasonal fresh tropical fruits on delicate sponge.', descCn: '丰富时令水果铺满表面。', prices: getFruitPrices(50) },
+            { id: 'fc-7', category: 'fruit', image: '7.jpg', nameEn: 'Ruby Pomegranate Berry Cake', nameCn: '红宝石石榴浆果蛋糕', descEn: 'Sparkling pomegranate arils with fresh berries.', descCn: '晶莹剔透红石榴。', prices: getFruitPrices(46) },
+            { id: 'fc-8', category: 'fruit', image: '8.jpg', nameEn: 'Zesty Citrus Lemon Cream Cake', nameCn: '清新柠檬蜜橘水果蛋糕', descEn: 'Bright citrus notes balanced with sweet dairy cream.', descCn: '清新柑橘果香。', prices: getFruitPrices(44) },
+            { id: 'fc-9', category: 'fruit', image: '9.jpg', nameEn: 'Double Melon Summer Cake', nameCn: '双色密瓜夏日清爽蛋糕', descEn: 'Sweet green and orange melon balls with vanilla cream.', descCn: '精选哈密瓜与网纹瓜球。', prices: getFruitPrices(42) },
+            { id: 'fc-10', category: 'fruit', image: '10.jpg', nameEn: 'Fig & Honey Fresh Cream Cake', nameCn: '无花果黄金蜂蜜鲜果蛋糕', descEn: 'Fresh sweet figs drizzled with organic honey.', descCn: '软糯清甜无花果搭配有机蜂蜜。', prices: getFruitPrices(45) },
+            { id: 'fc-11', category: 'fruit', image: '11.jpg', nameEn: 'Heart Raspberry Ribbon Cake', nameCn: '红丝带覆盆子心形鲜果蛋糕', descEn: 'Heart-shaped cake brimming with fresh raspberries and red ribbons.', descCn: '精致心形覆盆子与红缎带。', prices: getFruitPrices(42) },
+            { id: 'fc-12', category: 'fruit', image: '12.jpg', nameEn: 'Ruffled Raspberry Mini Cake', nameCn: '精致花边覆盆子奶油蛋糕', descEn: 'Delicate ruffled frosting borders with fresh raspberries.', descCn: '优雅波浪花边覆盆子。', prices: getFruitPrices(42) },
+            { id: 'fc-13', category: 'fruit', image: '13.jpg', nameEn: 'Cloud Wish Mixed Fruit Cake', nameCn: '云朵祝愿什锦鲜果蛋糕', descEn: 'Happy Birthday cloud topper surrounded by lush mixed fruits.', descCn: '可爱云朵生日牌。', prices: getFruitPrices(50) },
+            { id: 'fc-14', category: 'fruit', image: '14.jpg', nameEn: 'Ruby Pomegranate Strawberry Cake', nameCn: '红石榴草莓鲜果蛋糕', descEn: 'Garnished with fresh strawberries and ruby pomegranate.', descCn: '草莓与红石榴结合。', prices: getFruitPrices(46) },
+            { id: 'fc-15', category: 'fruit', image: '15.jpg', nameEn: 'Green Grape Gradient Cake', nameCn: '渐变青提奶油鲜果蛋糕', descEn: 'Pastel green gradient frosting topped with lush green grapes.', descCn: '温柔渐变抹面青提。', prices: getFruitPrices(45) },
+            { id: 'fc-16', category: 'fruit', image: '16.jpg', nameEn: 'Lime & Green Grape Fresh Cake', nameCn: '青柠青提特调果香蛋糕', descEn: 'Sliced limes and fresh green grapes for a zesty twist.', descCn: '青柠与青提自然风味。', prices: getFruitPrices(45) },
+            { id: 'fc-17', category: 'fruit', image: '17.jpg', nameEn: 'Minimalist Strawberry Crown Cake', nameCn: '极简草莓皇冠奶油蛋糕', descEn: 'Six crown-placed strawberries on pristine white cream.', descCn: '纯净白奶油错落草莓。', prices: getFruitPrices(42) },
+            { id: 'fc-18', category: 'fruit', image: '18.jpg', nameEn: 'Smiley Berry Party Cake', nameCn: '微笑小脸浆果派对蛋糕', descEn: 'Charming smiley face design with berry crown and little heart feet.', descCn: '治愈系微笑小脸。', prices: getFruitPrices(45) },
+            { id: 'fc-19', category: 'fruit', image: '19.jpg', nameEn: 'Mango Strawberry Duo Cake', nameCn: '芒果草莓双拼鲜果蛋糕', descEn: 'Half sweet mango cubes and half fresh strawberries.', descCn: '金黄芒果与红润草莓双拼。', prices: getFruitPrices(44) },
+            { id: 'fc-20', category: 'fruit', image: '20.jpg', nameEn: 'Minimalist Rosemary Berry Cake', nameCn: '迷迭香极简草莓蓝莓蛋糕', descEn: 'Elegant minimalist styling with fresh berries and rosemary sprigs.', descCn: '极简法式设计莓果。', prices: getFruitPrices(42) },
+
+            // --- 2. Next Day Cakes ---
+            { id: 'nd-1', category: 'nextday', isNextDay: true, image: '2-1.jpg', nameEn: 'Textured Lettering Next-Day Cake', nameCn: '韩系质感涂抹定制字母蛋糕', descEn: 'Hand-textured white fresh cream cake with custom dark lettering.', descCn: '韩系复古质感抹面，定制手写祝福。', prices: priceNextDay },
+            { id: 'nd-2', category: 'nextday', isNextDay: true, image: '2-2.jpg', nameEn: 'Pearl Heart Next-Day Cake', nameCn: '珍珠心形次日达蛋糕', descEn: 'Stunning quilted heart-shaped cake adorned with delicate silver stars.', descCn: '精美菱格纹心形蛋糕。', prices: priceNextDay },
+            { id: 'nd-3', category: 'nextday', isNextDay: true, image: '2-3.jpg', nameEn: 'Blueberry Minimalist Next-Day Cake', nameCn: '极简蓝莓鲜奶油蛋糕', descEn: 'Clean white fresh cream finish bordered with fresh blueberries.', descCn: '纯净白色抹面环绕新鲜饱满蓝莓。', prices: priceNextDay },
+            { id: 'nd-4', category: 'nextday', isNextDay: true, image: '2-4.jpg', nameEn: 'Vintage Ribbon Heart Cake', nameCn: '法式复古缎带心形蛋糕', descEn: 'Romantic vintage piping with delicate ribbon accents.', descCn: '法式宫廷复古挤花与精致缎带。', prices: priceNextDay },
+            { id: 'nd-5', category: 'nextday', isNextDay: true, image: '2-5.jpg', nameEn: 'Chic Bowknot Fresh Cream Cake', nameCn: '优雅蝴蝶结鲜奶油蛋糕', descEn: 'Minimalist white frosting decorated with sweet minimalist bows.', descCn: '优雅纯白造型点缀定制蝴蝶结。', prices: priceNextDay },
+            { id: 'nd-6', category: 'nextday', isNextDay: true, image: '2-6.jpg', nameEn: 'Korean Minimalist Line Cake', nameCn: '韩系线条极简生日蛋糕', descEn: 'Smooth pastel finish with delicate minimalist line art.', descCn: '温柔低饱和色调线条艺术。', prices: priceNextDay },
+            { id: 'nd-7', category: 'nextday', isNextDay: true, image: '2-7.jpg', nameEn: 'Retro Cherry Birthday Cake', nameCn: '复古美式红樱桃蛋糕', descEn: 'Classic vintage piping with glossy bright red cherries.', descCn: '美式复古经典裱花造型。', prices: priceNextDay },
+            { id: 'nd-8', category: 'nextday', isNextDay: true, image: '2-8.jpg', nameEn: 'Elegant Floral Fresh Cream Cake', nameCn: '仙气淡雅韩式裱花蛋糕', descEn: 'Hand-piped delicate cream florals on soft pastel base.', descCn: '匠心手作奶油挤花。', prices: priceNextDay },
+            { id: 'nd-9', category: 'nextday', isNextDay: true, image: '2-9.jpg', nameEn: 'Golden Crown Celebration Cake', nameCn: '精致皇冠加冕纪念蛋糕', descEn: 'Luxurious crown topper with gold dust accents.', descCn: '高贵小皇冠造型。', prices: priceNextDay },
+            { id: 'nd-10', category: 'nextday', isNextDay: true, image: '2-10.jpg', nameEn: 'Shimmering Starry Night Cake', nameCn: '梦幻星河闪耀奶油蛋糕', descEn: 'Sparkling edible dust and star sprinkles on dreamy backdrop.', descCn: '梦幻渐变色系星光糖珠。', prices: priceNextDay },
+            { id: 'nd-11', category: 'nextday', isNextDay: true, image: '2-11.jpg', nameEn: 'Rainbow Brushstroke Party Cake', nameCn: '彩虹抹面派对生日蛋糕', descEn: 'Vibrant colorful brushstrokes with cute party hat topper.', descCn: '明快活泼彩色抹面。', prices: priceNextDay },
+            { id: 'nd-12', category: 'nextday', isNextDay: true, image: '2-12.jpg', nameEn: 'Oreo Monster Fun Cake', nameCn: '搞怪奥利奥小怪兽蛋糕', descEn: 'Playful Oreo cookies arranged like cute monsters with eyes.', descCn: '趣味奥利奥装饰。', prices: priceNextDay },
+            { id: 'nd-13', category: 'nextday', isNextDay: true, image: '2-13.jpg', nameEn: 'Adorable Puppy Paws Cake', nameCn: '萌趣小狗爪爪奶油蛋糕', descEn: 'Cute puppy ears and paws decoration in warm yellow tones.', descCn: '治愈系小狗主题。', prices: priceNextDay },
+            { id: 'nd-14', category: 'nextday', isNextDay: true, image: '2-14.jpg', nameEn: 'Cherry Blossom Brush Cake', nameCn: '樱桃粉调复古涂抹蛋糕', descEn: 'Soft pink brush strokes with sweet little cherries.', descCn: '柔美粉调与精致樱桃。', prices: priceNextDay },
+            { id: 'nd-15', category: 'nextday', isNextDay: true, image: '2-15.jpg', nameEn: 'Cute Little Piggy Cake', nameCn: '呆萌小粉猪治愈蛋糕', descEn: 'Adorable piggy face design that brings an instant smile.', descCn: '萌趣小猪造型。', prices: priceNextDay },
+            { id: 'nd-16', category: 'nextday', isNextDay: true, image: '2-16.jpg', nameEn: 'White Bear & Hearts Cake', nameCn: '白巧小熊爱心生日蛋糕', descEn: 'Hand-crafted white chocolate bear with scattered hearts.', descCn: '精美白巧小熊公仔。', prices: priceNextDay },
+            { id: 'nd-17', category: 'nextday', isNextDay: true, image: '2-17.jpg', nameEn: 'Black Ribbon Gothic Grace Cake', nameCn: '暗黑高级感黑缎带蛋糕', descEn: 'Stunning contrast with sleek black ribbon trim.', descCn: '高级黑缎带与复古挤边。', prices: priceNextDay },
+            { id: 'nd-18', category: 'nextday', isNextDay: true, image: '2-18.jpg', nameEn: '21st Birthday Daisy Art Cake', nameCn: '小雏菊21岁定制纪念蛋糕', descEn: 'Custom milestone birthday number with playful daisies.', descCn: '清新小雏菊定制。', prices: priceNextDay },
+            { id: 'nd-19', category: 'nextday', isNextDay: true, image: '2-19.jpg', nameEn: 'Celestial Moon & Wave Cake', nameCn: '星月流光奶油艺术蛋糕', descEn: 'Ethereal crescent moon topper with flowing cream waves.', descCn: '唯美月亮装饰。', prices: priceNextDay },
+            { id: 'nd-20', category: 'nextday', isNextDay: true, image: '2-20.jpg', nameEn: '2D Cartoon Comic Style Cake', nameCn: '2D漫画风立体仿真蛋糕', descEn: 'Trendy comic book 2D outline design with party hat.', descCn: '时下流行二次元漫画风。', prices: priceNextDay },
+
+            // --- 3. Heart Cakes ---
+            { id: 'ht-1', category: 'heart', image: '4-1.jpg', nameEn: 'Red Ribbon Lettering Heart Cake', nameCn: '红缎带手写字心形定制蛋糕', descEn: 'Heart-shaped cake adorned with delicate red ribbons and custom lettering.', descCn: '精美红缎带与手写祝福心形定制蛋糕。', prices: getHeartPrices(41) },
+            { id: 'ht-2', category: 'heart', image: '4-2.jpg', nameEn: 'Silver Star Quilted Heart Cake', nameCn: '银星菱格纹心形奶油蛋糕', descEn: 'Quilted fresh cream heart cake decorated with sparkling silver stars.', descCn: '优雅菱格纹心形蛋糕点缀闪亮银星。', prices: getHeartPrices(42) },
+            { id: 'ht-3', category: 'heart', image: '4-3.jpg', nameEn: 'Pastel Green Love You Heart Cake', nameCn: '薄荷绿爱心立体字母蛋糕', descEn: 'Soft pastel green heart cake with chunky pink "Love You" lettering.', descCn: '清新薄荷绿搭配粉色立体“Love You”字样。', prices: getHeartPrices(45) },
+            { id: 'ht-4', category: 'heart', image: '4-4.jpg', nameEn: 'Rainbow Pastry Birthday Heart Cake', nameCn: '彩虹渐变花边生日心形蛋糕', descEn: 'Playful rainbow pastel background framed by ruffled pink piping.', descCn: '梦幻彩虹渐变底色搭配精致粉色花边。', prices: getHeartPrices(46) },
+            { id: 'ht-5', category: 'heart', image: '4-5.jpg', nameEn: 'Minimalist Berry Heart Cake', nameCn: '极简莓果点缀心形奶油蛋糕', descEn: 'Soft pink textured frosting topped with fresh raspberries and blueberries.', descCn: '柔美粉调质感抹面点缀新鲜覆盆子与蓝莓。', prices: getHeartPrices(44) },
+            { id: 'ht-6', category: 'heart', image: '4-6.jpg', nameEn: 'Classic Lilac Ruffled Heart Cake', nameCn: '经典香芋紫复古花边心形蛋糕', descEn: 'Elegant lilac vintage piped borders with clean matching finish.', descCn: '优雅香芋紫复古宫廷挤花心形蛋糕。', prices: getHeartPrices(43) },
+            { id: 'ht-7', category: 'heart', image: '4-7.jpg', nameEn: 'Gradient Rose Heart Cake', nameCn: '渐变玫瑰心形艺术奶油蛋糕', descEn: 'Intricately piped gradient cream rose center with celebration flag.', descCn: '匠心手工渐变玫瑰挤花与生日插旗。', prices: getHeartPrices(43) },
+            { id: 'ht-8', category: 'heart', image: '4-8.jpg', nameEn: 'Midnight Blue Custom Art Heart Cake', nameCn: '午夜蓝涂鸦定制心形蛋糕', descEn: 'Deep blue top surface with custom handwriting and playful cartoon board doodles.', descCn: '深蓝色高级感表面搭配手写字与趣味漫画涂鸦。', prices: getHeartPrices(46) },
+            { id: 'ht-9', category: 'heart', image: '4-9.jpg', nameEn: 'Multi-Ribbon Pearl Heart Cake', nameCn: '多重缎带珍珠心形庆典蛋糕', descEn: 'Elaborate multi-ribbon piping with decorative pearl elements.', descCn: '多重精致缎带与珍珠点缀的奢华心形蛋糕。', prices: getHeartPrices(48) },
+            { id: 'ht-10', category: 'heart', image: '4-10.jpg', nameEn: 'Lush Raspberry Crown Heart Cake', nameCn: '满溢覆盆子皇冠心形蛋糕', descEn: 'Heart-shaped cake crowned with an abundance of fresh Scottish raspberries.', descCn: '铺满新鲜多汁覆盆子的精致心形蛋糕。', prices: getHeartPrices(42) },
+
+            // --- 4. Sculpted Cakes ---
+            { id: 'sc-1', category: 'sculpted', image: '2-11.jpg', nameEn: '2D Cartoon Comic Style Cake', nameCn: '2D漫画风立体仿真蛋糕', descEn: 'Trendy comic book 2D outline design with party hat.', descCn: '时下流行二次元漫画风造型。', prices: priceNextDay },
+            { id: 'sc-2', category: 'sculpted', image: '2-15.jpg', nameEn: 'Cute Little Piggy Cake', nameCn: '呆萌小粉猪立体造型蛋糕', descEn: 'Adorable piggy face design that brings an instant smile.', descCn: '萌趣小猪立体造型。', prices: priceNextDay },
+
+            // --- 5. Specialty-Flavored Cakes ---
+            { id: 'sig-1', category: 'specialty', image: '3-1.jpg', nameEn: 'Matcha Cream Cake', nameCn: '宇治抹茶鲜奶油蛋糕', descEn: 'Uji premium matcha infused chiffon and rich silky green tea fresh cream.', descCn: '京都宇治顶级抹茶，茶香浓郁清苦回甘。', prices: getFruitPrices(45) },
+            { id: 'sig-2', category: 'specialty', image: '3-2.jpg', nameEn: 'Caramel Cream Cake', nameCn: '海盐焦糖鲜奶油蛋糕', descEn: 'House-made salted buttery caramel layered with whipped fresh cream.', descCn: '自家熬制海盐焦糖酱，咸甜交织。', prices: getFruitPrices(45) },
+            { id: 'sig-3', category: 'specialty', image: '3-3.jpg', nameEn: 'Earl Grey Tea Cream Cake', nameCn: '伯爵茶香鲜奶油蛋糕', descEn: 'Fragrant British Earl Grey tea infused cream with soft moist sponge.', descCn: '浓郁英式伯爵茶茶汤融入轻盈奶油。', prices: getFruitPrices(45) },
+            { id: 'sig-4', category: 'specialty', image: '3-4.jpg', nameEn: 'Black Sesame Cream Cake', nameCn: '黑芝麻流心鲜奶油蛋糕', descEn: 'Rich toasted black sesame paste blended into smooth dairy cream.', descCn: '精选黑芝麻深度烘焙研磨。', prices: getFruitPrices(45) },
+            { id: 'sig-5', category: 'specialty', image: '3-5.jpg', nameEn: 'Jasmine Tea Cream Cake', nameCn: '茉莉清茶鲜奶油蛋糕', descEn: 'Delicate floral jasmine green tea infused cream with gentle sweetness.', descCn: '清新茉莉花茶香，口感清爽淡雅。', prices: getFruitPrices(45) },
+            { id: 'sig-6', category: 'specialty', image: '3-6.jpg', nameEn: 'Pistachio Cream Cake', nameCn: '西西里开心果鲜奶油蛋糕', descEn: 'Roasted Sicilian pistachio cream layered with smooth chocolate ganache.', descCn: '香浓开心果酱与纯鲜奶油完美融合。', prices: getFruitPrices(48) },
+
+            // --- 6. 4-Inch Fixed Designs (9 款新图，售价 £30.00，夹心为 芒果/奥利奥碎/罐头黄桃) ---
+            { id: 'f4-new-1', category: 'fixed4', isFixedSize: true, image: '60.jpg', nameEn: '4" Minimalist Textured Lettering Cake', nameCn: '4寸韩系复古质感字母蛋糕', descEn: 'Minimalist textured cream finish with custom handwriting.', descCn: '复古质感抹面，手写生日祝福。', prices: priceFixed4 },
+            { id: 'f4-new-2', category: 'fixed4', isFixedSize: true, image: '61.jpg', nameEn: '4" Cherry Blossom Pink Brush Cake', nameCn: '4寸粉调樱桃法式涂抹蛋糕', descEn: 'Soft pink brush strokes decorated with cute red cherries.', descCn: '柔美粉调抹面与精致手作樱桃装饰。', prices: priceFixed4 },
+            { id: 'f4-new-3', category: 'fixed4', isFixed
