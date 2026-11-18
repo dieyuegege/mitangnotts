@@ -73,7 +73,7 @@
                     </div>
                 </div>
 
-                <!-- Dessert Dropdown (已修复点击上翻与悬停跳转问题) -->
+                <!-- Dessert Dropdown -->
                 <div class="relative dropdown py-4">
                     <a href="#boxed-cakes" onclick="event.preventDefault(); filterDessert('all'); showCatalogView();" class="hover:text-rose-700 transition-colors flex items-center gap-1">
                         <span class="nav-dessert">Dessert</span> 
@@ -145,14 +145,14 @@
 
     <!-- ================= CATALOG VIEW ================= -->
     <div id="catalogView" class="flex-grow flex flex-col">
-        <!-- Hero Section (已按要求在描述下方增加自定义蛋糕定制及预定提示) -->
+        <!-- Hero Section -->
         <section class="relative py-16 sm:py-24 bg-gradient-to-b from-rose-50/80 to-transparent" id="birthday-cakes">
             <div class="max-w-5xl mx-auto px-4 text-center">
                 <span class="inline-block py-1 px-4 rounded-full bg-rose-100/80 text-rose-800 text-xs font-semibold tracking-wider uppercase mb-4 hero-subtitle">Artisanal Patisserie in Nottingham</span>
                 <h1 class="text-4xl sm:text-6xl font-serif font-bold text-stone-900 tracking-tight mb-6 hero-title">
                     Light, Fresh & Beautiful Cream Cakes
                 </h1>
-                <p class="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-normal leading-relaxed mb-4 hero-desc">Whipped 100% pure dairy fresh cream with ultra-soft chiffon sponges.</p>
+                <p class="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-normal leading-relaxed mb-2 hero-desc">Whipped 100% pure dairy fresh cream with ultra-soft chiffon sponges.</p>
                 <p class="text-sm font-semibold text-rose-700 mb-8 hero-custom-notice">✨ 我们接受来图定制，提前5天预定 (We accept custom designs with 5 days advance notice)</p>
                 
                 <!-- 生日蛋糕分类筛选按钮 -->
@@ -688,6 +688,7 @@
             }
         ];
 
+        // 整合 boxedCakes 数组，包含所有甜品分类
         const boxedCakes = [
             ...boxesCakesList,
             { 
