@@ -7,6 +7,9 @@
     <!-- Tailwind CSS v4 -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Flatpickr 日历插件样式 (确保日期固定显示为 dd/mm/yyyy) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -123,7 +126,7 @@
                     <span class="m-order-online">Order Online</span>
                     <svg class="w-5 h-5 text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </div>
-                <!-- 修复：将 All Birthday Cakes 和 Dessert & Boxes Cakes 加黑、加粗、加大显示 -->
+                <!-- 移动端：All Birthday Cakes 和 Dessert & Boxes Cakes 加黑、加粗、加大显示 -->
                 <div id="mobileOrderSub" class="hidden pl-4 pt-3 space-y-3 text-stone-700">
                     <a href="#birthday-cakes" onclick="filterCategory('all'); toggleMobileMenu(false); showCatalogView();" class="block font-black text-lg text-rose-950 hover:text-rose-700 m-sub-all">All Birthday Cakes</a>
                     <a href="#birthday-cakes" onclick="filterCategory('fruit'); toggleMobileMenu(false); showCatalogView();" class="block text-sm font-medium hover:text-rose-700 nav-cat-fruit">Fruit Cakes</a>
@@ -155,7 +158,7 @@
                     Light, Fresh & Beautiful Cream Cakes
                 </h1>
                 <p class="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-normal leading-relaxed mb-2 hero-desc">Whipped 100% pure dairy fresh cream with ultra-soft chiffon sponges.</p>
-                <!-- 修复：中英文定制文案 -->
+                <!-- 定制文案：英文显示 5 days advance notice，中文显示 提前5天预定 -->
                 <p class="text-sm font-semibold text-rose-700 mb-8 hero-custom-notice">✨ We accept custom designs with 5 days advance notice ✨</p>
                 
                 <!-- 生日蛋糕分类筛选按钮 -->
@@ -359,7 +362,7 @@
         let cart = [];
         let currentDetailProduct = null;
 
-        // 辅助函数：将 YYYY-MM-DD 格式化为英国标准的日/月/年 (DD/MM/YYYY)
+        // 统一格式化日期为 DD/MM/YYYY
         function formatDateUK(dateStr) {
             if (!dateStr) return '';
             const parts = dateStr.split('-');
@@ -787,7 +790,7 @@
             { id: 'ht-9', category: 'heart', image: '4-9.jpg', nameEn: 'Multi-Ribbon Pearl Heart Cake', nameCn: '多重缎带珍珠心形庆典蛋糕', descEn: 'Elaborate multi-ribbon piping with decorative pearl elements.', descCn: '多重精致缎带与珍珠点缀的奢华心形蛋糕。', prices: getHeartPrices(48) },
             { id: 'ht-10', category: 'heart', image: '4-10.jpg', nameEn: 'Lush Raspberry Crown Heart Cake', nameCn: '满溢覆盆子皇冠心形蛋糕', descEn: 'Heart-shaped cake crowned with an abundance of fresh Scottish raspberries.', descCn: '铺满新鲜多汁覆盆子的精致心形蛋糕。', prices: getHeartPrices(42) },
 
-            { id: 'sc-1', category: 'sculpted', image: '2-11.jpg', nameEn: '2D Cartoon Comic Style Cake', nameCn: '2D漫画风立体仿真蛋糕', descEn: 'Trendy comic book 2D outline design with party hat.', descCn: '时下流行二次元漫画风造型。', prices: priceNextDay },
+            { id: 'sc-1', category: 'sculpted', image: '2-11.jpg', nameEn: '2D Cartoon Comic Style Cake', nameCn: '2D漫画风立体仿真蛋糕', descEn: 'Trendy comic book 2D outline design with party hat.', descCn: '时下流行二次元漫画风。', prices: priceNextDay },
             { id: 'sc-2', category: 'sculpted', image: '2-15.jpg', nameEn: 'Cute Little Piggy Cake', nameCn: '呆萌小粉猪立体造型蛋糕', descEn: 'Adorable piggy face design that brings an instant smile.', descCn: '萌趣小猪立体造型。', prices: priceNextDay },
 
             { id: 'sig-1', category: 'specialty', image: '3-1.jpg', nameEn: 'Matcha Cream Cake', nameCn: '宇治抹茶鲜奶油蛋糕', descEn: 'Uji premium matcha infused chiffon and rich silky green tea fresh cream.', descCn: '京都宇治顶级抹茶，茶香浓郁清苦回甘。', prices: getFruitPrices(45) },
@@ -1117,7 +1120,7 @@
                                     <option value="Nottingham Local Delivery">Nottingham Local Delivery</option>
                                     <option value="Collection at West Bridgford (12pm-6pm)">Collection at West Bridgford</option>
                                 </select>
-                                <input type="date" id="detailDate" min="${minDateStr}" value="${minDateStr}" class="px-4 py-3 rounded-2xl border border-stone-300 bg-white text-sm font-medium text-stone-800 focus:ring-2 focus:ring-rose-500">
+                                <input type="text" id="detailDate" class="uk-date-picker px-4 py-3 rounded-2xl border border-stone-300 bg-white text-sm font-medium text-stone-800 focus:ring-2 focus:ring-rose-500" value="${minDateStr}">
                             </div>
                         </div>
                         <button onclick="addSliceCakeToCart()" class="w-full py-4 rounded-2xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-base shadow-md transition-all cursor-pointer">
@@ -1128,6 +1131,7 @@
                 </div>
             `;
 
+            initFlatpickr(minDateStr);
             document.getElementById('catalogView').classList.add('hidden');
             document.getElementById('productDetailView').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1137,10 +1141,9 @@
             if (!currentDetailProduct) return;
             const price = currentDetailProduct.prices['1/8 Slice'];
             const fulfillment = document.getElementById('detailFulfillmentType').value;
-            const selectedDate = document.getElementById('detailDate').value;
-            const formattedDate = formatDateUK(selectedDate);
+            const selectedDate = document.getElementById('detailDate').value; // 已是 dd/mm/yyyy
 
-            const specSummary = `1/8 Slice | ${fulfillment} on ${formattedDate}`;
+            const specSummary = `1/8 Slice | ${fulfillment} on ${selectedDate}`;
             const isCn = currentLang === 'cn';
             const name = isCn ? currentDetailProduct.nameCn : currentDetailProduct.nameEn;
 
@@ -1212,7 +1215,7 @@
                                     <option value="Nottingham Local Delivery">Nottingham Local Delivery</option>
                                     <option value="Collection at West Bridgford (12pm-6pm)">Collection at West Bridgford</option>
                                 </select>
-                                <input type="date" id="detailDate" min="${minDateStr}" value="${minDateStr}" class="px-4 py-3 rounded-2xl border border-stone-300 bg-white text-sm font-medium text-stone-800 focus:ring-2 focus:ring-rose-500">
+                                <input type="text" id="detailDate" class="uk-date-picker px-4 py-3 rounded-2xl border border-stone-300 bg-white text-sm font-medium text-stone-800 focus:ring-2 focus:ring-rose-500" value="${minDateStr}">
                             </div>
                         </div>
                         <button onclick="addBoxCakeToCart()" class="w-full py-4 rounded-2xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-base shadow-md transition-all cursor-pointer">
@@ -1223,6 +1226,7 @@
                 </div>
             `;
 
+            initFlatpickr(minDateStr);
             document.getElementById('catalogView').classList.add('hidden');
             document.getElementById('productDetailView').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1246,10 +1250,9 @@
             const sizeName = selectedSizeInput.value;
             const price = parseFloat(selectedSizeInput.getAttribute('data-price'));
             const fulfillment = document.getElementById('detailFulfillmentType').value;
-            const selectedDate = document.getElementById('detailDate').value;
-            const formattedDate = formatDateUK(selectedDate);
+            const selectedDate = document.getElementById('detailDate').value; // 已是 dd/mm/yyyy
 
-            const specSummary = `Size: ${sizeName} | ${fulfillment} on ${formattedDate}`;
+            const specSummary = `Size: ${sizeName} | ${fulfillment} on ${selectedDate}`;
             const isCn = currentLang === 'cn';
             const name = isCn ? currentDetailProduct.nameCn : currentDetailProduct.nameEn;
 
@@ -1313,7 +1316,7 @@
                                     <option value="Nottingham Local Delivery">Nottingham Local Delivery</option>
                                     <option value="Collection at West Bridgford (12pm-6pm)">Collection at West Bridgford</option>
                                 </select>
-                                <input type="date" id="detailDate" min="${minDateStr}" value="${minDateStr}" class="px-4 py-3 rounded-2xl border border-stone-300 bg-white text-sm font-medium text-stone-800 focus:ring-2 focus:ring-rose-500">
+                                <input type="text" id="detailDate" class="uk-date-picker px-4 py-3 rounded-2xl border border-stone-300 bg-white text-sm font-medium text-stone-800 focus:ring-2 focus:ring-rose-500" value="${minDateStr}">
                             </div>
                         </div>
                         <button onclick="addCrepeRollToCart()" class="w-full py-4 rounded-2xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-base shadow-md transition-all cursor-pointer">
@@ -1324,6 +1327,7 @@
                 </div>
             `;
 
+            initFlatpickr(minDateStr);
             document.getElementById('catalogView').classList.add('hidden');
             document.getElementById('productDetailView').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1347,10 +1351,9 @@
             const flavorName = selectedFlavorInput.value;
             const price = parseFloat(selectedFlavorInput.getAttribute('data-price'));
             const fulfillment = document.getElementById('detailFulfillmentType').value;
-            const selectedDate = document.getElementById('detailDate').value;
-            const formattedDate = formatDateUK(selectedDate);
+            const selectedDate = document.getElementById('detailDate').value; // 已是 dd/mm/yyyy
 
-            const specSummary = `Flavor: ${flavorName} | ${fulfillment} on ${formattedDate}`;
+            const specSummary = `Flavor: ${flavorName} | ${fulfillment} on ${selectedDate}`;
             const isCn = currentLang === 'cn';
             const name = isCn ? currentDetailProduct.nameCn : currentDetailProduct.nameEn;
 
@@ -1459,7 +1462,7 @@
                                     <option value="Nottingham Local Delivery">Nottingham Local Delivery</option>
                                     <option value="Collection at West Bridgford (12pm-6pm)">Collection at West Bridgford</option>
                                 </select>
-                                <input type="date" id="detailDate" min="${minDateStr}" value="${minDateStr}" class="px-4 py-3 rounded-2xl border border-stone-300 bg-white text-sm font-medium text-stone-800 focus:ring-2 focus:ring-rose-500" style="color-scheme: light;">
+                                <input type="text" id="detailDate" class="uk-date-picker px-4 py-3 rounded-2xl border border-stone-300 bg-white text-sm font-medium text-stone-800 focus:ring-2 focus:ring-rose-500" value="${minDateStr}">
                             </div>
                         </div>
 
@@ -1491,9 +1494,24 @@
                 </div>
             `;
 
+            initFlatpickr(minDateStr);
             document.getElementById('catalogView').classList.add('hidden');
             document.getElementById('productDetailView').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 初始化 Flatpickr 日历，强制显示为 DD/MM/YYYY 格式
+        function initFlatpickr(defaultDateStr) {
+            flatpickr(".uk-date-picker", {
+                dateFormat: "Y-m-d", // 内部存储格式
+                altInput: true,
+                altFormat: "d/m/Y",  // 英国标准显示格式：日/月/年 (DD/MM/YYYY)
+                defaultDate: defaultDateStr,
+                minDate: defaultDateStr,
+                locale: {
+                    firstDayOfWeek: 1
+                }
+            });
         }
 
         function selectDetailSize(labelEl, price) {
@@ -1517,8 +1535,7 @@
                 return;
             }
 
-            const selectedDate = document.getElementById('detailDate').value;
-            const formattedDate = formatDateUK(selectedDate);
+            const selectedDate = document.getElementById('detailDate').value; // 已是 dd/mm/yyyy 格式
             const selectedSizeInput = document.querySelector('input[name="detailSize"]:checked');
             const size = selectedSizeInput.value;
             const price = parseFloat(selectedSizeInput.getAttribute('data-price'));
@@ -1535,7 +1552,7 @@
             }
 
             const writingText = cakeWriting ? ` | Cake Writing: "${cakeWriting}"` : '';
-            const specSummary = `${size}${fillingText}${writingText} | ${fulfillment} on ${formattedDate}`;
+            const specSummary = `${size}${fillingText}${writingText} | ${fulfillment} on ${selectedDate}`;
             const name = isCn ? currentDetailProduct.nameCn : currentDetailProduct.nameEn;
 
             const existing = cart.find(item => item.id === currentDetailProduct.id && item.size === specSummary);
