@@ -523,6 +523,7 @@
         const priceNextDay = { '6 inch (2-4 pax)': 42, '8 inch (5-7 pax)': 55, '10 inch (8-10 pax)': 65 };
         const priceFixed4 = { '4 inch Fixed Design (1-2 pax)': 30 };
         const priceFixed5 = { '5 inch Fixed Design (3-5 pax)': 36 };
+        const fixed6SizeLabel = '6 inch Fixed Design (2-4 pax)';
 
         const fillingsList = [
             { id: 'mango', en: 'Fresh Mango', cn: '新鲜芒果' },
@@ -649,6 +650,50 @@
                 descCn: '浓郁宇治抹茶奶油搭配新鲜多汁草莓（图片展示为大号 709ml）',
                 isBoxCake: true,
                 prices: { '中号 (500ml)': 6.50, '大号 (709ml)': 9.00 }
+            },
+            { 
+                id: 'bx-11', 
+                dessertCategory: 'boxes',
+                image: '35.jpg', 
+                nameEn: 'Artisan Box Cake #35', 
+                nameCn: '手作盒子蛋糕 #35', 
+                descEn: 'Fresh cream handcrafted box cake (Photo shows Large 709ml)', 
+                descCn: '纯动物鲜奶油手作盒子蛋糕（图片展示为大号 709ml）',
+                isBoxCake: true,
+                prices: { '中号 (500ml)': 6.00, '大号 (709ml)': 8.50 }
+            },
+            { 
+                id: 'bx-12', 
+                dessertCategory: 'boxes',
+                image: '36.jpg', 
+                nameEn: 'Artisan Box Cake #36', 
+                nameCn: '手作盒子蛋糕 #36', 
+                descEn: 'Fresh cream handcrafted box cake (Photo shows Large 709ml)', 
+                descCn: '纯动物鲜奶油手作盒子蛋糕（图片展示为大号 709ml）',
+                isBoxCake: true,
+                prices: { '中号 (500ml)': 6.50, '大号 (709ml)': 9.00 }
+            },
+            { 
+                id: 'bx-13', 
+                dessertCategory: 'boxes',
+                image: '37.jpg', 
+                nameEn: 'Artisan Box Cake #37', 
+                nameCn: '手作盒子蛋糕 #37', 
+                descEn: 'Signature rich handcrafted box cake (Photo shows Large 709ml)', 
+                descCn: '招牌浓郁手作盒子蛋糕（图片展示为大号 709ml）',
+                isBoxCake: true,
+                prices: { '中号 (500ml)': 9.50, '大号 (709ml)': 18.00 }
+            },
+            { 
+                id: 'bx-14', 
+                dessertCategory: 'boxes',
+                image: '53.jpg', 
+                nameEn: 'Artisan Box Cake #53', 
+                nameCn: '手作盒子蛋糕 #53', 
+                descEn: 'Fresh cream handcrafted box cake (Photo shows Large 709ml)', 
+                descCn: '纯动物鲜奶油手作盒子蛋糕（图片展示为大号 709ml）',
+                isBoxCake: true,
+                prices: { '中号 (500ml)': 6.50, '大号 (709ml)': 9.00 }
             }
         ];
 
@@ -772,6 +817,87 @@
             }
         ];
 
+        const otherDessertsList = [
+            {
+                id: 'ot-1',
+                dessertCategory: 'others',
+                image: '43.jpg',
+                nameEn: 'Pork Floss Buns (3 pcs)',
+                nameCn: '肉松面包（3个）',
+                descEn: 'Soft bakery buns topped with savory pork floss (Pack of 3)',
+                descCn: '柔软香甜面包搭配咸香肉松（3个装）',
+                isOtherDessert: true,
+                price: 8.00,
+                badgeLabelEn: '3 pcs',
+                badgeLabelCn: '3个装'
+            },
+            {
+                id: 'ot-2',
+                dessertCategory: 'others',
+                image: '48.jpg',
+                nameEn: 'Artisan Sweet Treat #48',
+                nameCn: '手作甜点 #48',
+                descEn: 'Handcrafted patisserie special by mitangnotts',
+                descCn: 'mitangnotts 匠心手作甜点',
+                isOtherDessert: true,
+                price: 8.00,
+                badgeLabelEn: 'Special',
+                badgeLabelCn: '特色甜点'
+            },
+            {
+                id: 'ot-3',
+                dessertCategory: 'others',
+                image: '49.jpg',
+                nameEn: 'Artisan Sweet Treat #49',
+                nameCn: '手作甜点 #49',
+                descEn: 'Handcrafted patisserie special by mitangnotts',
+                descCn: 'mitangnotts 匠心手作甜点',
+                isOtherDessert: true,
+                price: 10.00,
+                badgeLabelEn: 'Special',
+                badgeLabelCn: '特色甜点'
+            },
+            {
+                id: 'ot-4',
+                dessertCategory: 'others',
+                image: '51.jpg',
+                nameEn: 'Artisan Sweet Treat #51',
+                nameCn: '手作甜点 #51',
+                descEn: 'Handcrafted patisserie special by mitangnotts',
+                descCn: 'mitangnotts 匠心手作甜点',
+                isOtherDessert: true,
+                price: 8.00,
+                badgeLabelEn: 'Special',
+                badgeLabelCn: '特色甜点'
+            },
+            {
+                id: 'ot-5',
+                dessertCategory: 'others',
+                image: '52.jpg',
+                nameEn: 'Artisan Sweet Treat #52',
+                nameCn: '手作甜点 #52',
+                descEn: 'Handcrafted patisserie special by mitangnotts',
+                descCn: 'mitangnotts 匠心手作甜点',
+                isOtherDessert: true,
+                price: 8.00,
+                badgeLabelEn: 'Special',
+                badgeLabelCn: '特色甜点'
+            },
+            {
+                id: 'ot-6',
+                dessertCategory: 'others',
+                image: '59.jpg',
+                nameEn: 'Artisan Sweet Treat #59',
+                nameCn: '手作甜点 #59',
+                descEn: 'Handcrafted patisserie special by mitangnotts',
+                descCn: 'mitangnotts 匠心手作甜点',
+                isOtherDessert: true,
+                price: 6.00,
+                badgeLabelEn: 'Special',
+                badgeLabelCn: '特色甜点'
+            }
+        ];
+
         const boxedCakes = [
             ...boxesCakesList,
             { 
@@ -785,7 +911,8 @@
                 isCrepeRoll: true,
                 flavors: crepeRollFlavors
             },
-            ...cakeSlicesList
+            ...cakeSlicesList,
+            ...otherDessertsList
         ];
 
         const products = [
@@ -842,18 +969,26 @@
             { id: 'ht-9', category: 'heart', image: '4-9.jpg', nameEn: 'Multi-Ribbon Pearl Heart Cake', nameCn: '多重缎带珍珠心形庆典蛋糕', descEn: 'Elaborate multi-ribbon piping with decorative pearl elements.', descCn: '多重精致缎带与珍珠点缀的奢华心形蛋糕。', prices: getHeartPrices(48) },
             { id: 'ht-10', category: 'heart', image: '4-10.jpg', nameEn: 'Lush Raspberry Crown Heart Cake', nameCn: '满溢覆盆子皇冠心形蛋糕', descEn: 'Heart-shaped cake crowned with an abundance of fresh Scottish raspberries.', descCn: '铺满新鲜多汁覆盆子的精致心形蛋糕。', prices: getHeartPrices(42) },
 
-            { id: 'sc-1', category: 'sculpted', image: '2-11.jpg', nameEn: '2D Cartoon Comic Style Cake', nameCn: '2D漫画风立体仿真蛋糕', descEn: 'Trendy comic book 2D outline design with party hat.', descCn: '时下流行二次元漫画风。', prices: priceNextDay },
-            { id: 'sc-2', category: 'sculpted', image: '2-15.jpg', nameEn: 'Cute Little Piggy Cake', nameCn: '呆萌小粉猪立体造型蛋糕', descEn: 'Adorable piggy face design that brings an instant smile.', descCn: '萌趣小猪立体造型。', prices: priceNextDay },
-            { id: 'sc-3', category: 'sculpted', image: '100.jpg', nameEn: 'Spotted Seal Sculpted Cake', nameCn: '斑点海豹异型蛋糕', descEn: 'Textured grey cream seal sculpted with cute flippers and expression.', descCn: '灰白质感奶油塑形斑点海豹，憨态可掬。', prices: priceNextDay },
-            { id: 'sc-4', category: 'sculpted', image: '101.jpg', nameEn: 'Hello Kitty Sculpted Cake', nameCn: 'Hello Kitty 异型蛋糕', descEn: 'Classic white cream Hello Kitty face with red bow and yellow nose.', descCn: '经典白奶油 Hello Kitty 造型搭配红蝴蝶结与黄鼻头。', prices: priceNextDay },
-            { id: 'sc-5', category: 'sculpted', image: '102.jpg', nameEn: 'Pink Cottage & Couple Sculpted Cake', nameCn: '粉色小屋恋人异型蛋糕', descEn: 'Rich dark cocoa base with pink snowy top, mini house, pine trees & couple.', descCn: '深色可可底面搭配粉雪顶面、迷你小屋与恋人公仔。', prices: priceNextDay },
-            { id: 'sc-6', category: 'sculpted', image: '103.jpg', nameEn: 'Angel Wings 25th Sculpted Cake', nameCn: '天使翅膀 25 岁异型蛋糕', descEn: 'Cream cake topped with sculpted white wings, heart and bold "25" number.', descCn: '精致立体天使翅膀与爱心装饰，搭配醒目数字“25”。', prices: priceNextDay },
-            { id: 'sc-7', category: 'sculpted', image: '104.jpg', nameEn: 'White Ribbon Mini-Cake Sculpted Cake', nameCn: '白缎带迷你蛋糕造型异型蛋糕', descEn: 'Draped cream cloth cake topped with a mini tiered cake and white satin bows.', descCn: '垂坠奶油布艺造型搭配迷你双层蛋糕与白缎带蝴蝶结。', prices: priceNextDay },
-            { id: 'sc-8', category: 'sculpted', image: '105.jpg', nameEn: 'Sunglasses Curly-Hair Party Hat Sculpted Cake', nameCn: '墨镜花卷头派对帽异型蛋糕', descEn: 'Playful piped cream curls with sunglasses, mini bear and birthday hat.', descCn: '蓬松奶油花卷头搭配酷炫墨镜、小熊与派对帽。', prices: priceNextDay },
-            { id: 'sc-9', category: 'sculpted', image: '106.jpg', nameEn: 'Burger Piggy Sculpted Cake', nameCn: '汉堡包小猪异型蛋糕', descEn: 'Creative burger-stacked cute piggy cake with party hat and custom message.', descCn: '创意汉堡层叠小猪造型，萌趣吸睛适合纪念日。', prices: priceNextDay },
-            { id: 'sc-10', category: 'sculpted', image: '107.jpg', nameEn: 'Floral Bunny Sculpted Cake', nameCn: '花朵小兔捧花异型蛋糕', descEn: 'Adorable seated bunny sculpted in fresh cream with pink flowers and paws.', descCn: '呆萌坐姿小兔造型，头戴粉花并配有粉色肉垫。', prices: priceNextDay },
-            { id: 'sc-11', category: 'sculpted', image: '108.jpg', nameEn: 'Cute Red Apple Sculpted Cake', nameCn: '可爱红苹果异型蛋糕', descEn: 'Vibrant red apple-shaped cake with cute expression face and green leaf.', descCn: '饱满红苹果异型蛋糕搭配萌系表情与绿叶点缀。', prices: priceNextDay },
-            { id: 'sc-12', category: 'sculpted', image: '109.jpg', nameEn: 'Fluffy Sheep Sculpted Cake', nameCn: '绵羊小黑脸异型蛋糕', descEn: 'Fluffy white cream wool puffs with a cute black sheep face on green grass.', descCn: '蓬松奶油羊毛搭配可爱小黑脸羊与草地造型。', prices: priceNextDay },
+            { id: 'sc-1', category: 'sculpted', isFixedSize: true, image: '2-11.jpg', nameEn: '6" Rainbow Brushstroke Party Cake', nameCn: '6寸彩虹抹面派对异型蛋糕', descEn: 'Vibrant colorful brushstrokes with cute party hat topper (Fixed 6 inch).', descCn: '明快活泼彩色抹面搭配派对帽造型（固定6英寸）。', prices: { [fixed6SizeLabel]: 55 } },
+            { id: 'sc-2', category: 'sculpted', isFixedSize: true, image: '2-15.jpg', nameEn: '6" Cute Little Piggy Cake', nameCn: '6寸呆萌小粉猪立体造型蛋糕', descEn: 'Adorable piggy face design that brings an instant smile (Fixed 6 inch).', descCn: '萌趣小猪立体造型（固定6英寸）。', prices: { [fixed6SizeLabel]: 55 } },
+            { id: 'sc-3', category: 'sculpted', isFixedSize: true, image: '100.jpg', nameEn: '6" Spotted Seal Sculpted Cake', nameCn: '6寸斑点海豹异型蛋糕', descEn: 'Textured grey cream seal sculpted with cute flippers and expression (Fixed 6 inch).', descCn: '灰白质感奶油塑形斑点海豹，憨态可掬（固定6英寸）。', prices: { [fixed6SizeLabel]: 50 } },
+            { id: 'sc-4', category: 'sculpted', isFixedSize: true, image: '101.jpg', nameEn: '6" Hello Kitty Sculpted Cake', nameCn: '6寸 Hello Kitty 异型蛋糕', descEn: 'Classic white cream Hello Kitty face with red bow and yellow nose (Fixed 6 inch).', descCn: '经典白奶油 Hello Kitty 造型搭配红蝴蝶结与黄鼻头（固定6英寸）。', prices: { [fixed6SizeLabel]: 45 } },
+            { id: 'sc-5', category: 'sculpted', isFixedSize: true, image: '102.jpg', nameEn: '6" Pink Cottage & Couple Sculpted Cake', nameCn: '6寸粉色小屋恋人异型蛋糕', descEn: 'Rich dark cocoa base with pink snowy top, mini house, pine trees & couple (Fixed 6 inch).', descCn: '深色可可底面搭配粉雪顶面、迷你小屋与恋人公仔（固定6英寸）。', prices: { [fixed6SizeLabel]: 60 } },
+            { id: 'sc-6', category: 'sculpted', isFixedSize: true, image: '103.jpg', nameEn: '6" Angel Wings 25th Sculpted Cake', nameCn: '6寸天使翅膀 25 岁异型蛋糕', descEn: 'Cream cake topped with sculpted white wings, heart and bold "25" number (Fixed 6 inch).', descCn: '精致立体天使翅膀与爱心装饰，搭配醒目数字“25”（固定6英寸）。', prices: { [fixed6SizeLabel]: 46 } },
+            { id: 'sc-7', category: 'sculpted', isFixedSize: true, image: '104.jpg', nameEn: '6" White Ribbon Mini-Cake Sculpted Cake', nameCn: '6寸白缎带迷你蛋糕造型异型蛋糕', descEn: 'Draped cream cloth cake topped with a mini tiered cake and white satin bows (Fixed 6 inch).', descCn: '垂坠奶油布艺造型搭配迷你双层蛋糕与白缎带蝴蝶结（固定6英寸）。', prices: { [fixed6SizeLabel]: 60 } },
+            { id: 'sc-8', category: 'sculpted', isFixedSize: true, image: '105.jpg', nameEn: '6" Sunglasses Curly-Hair Party Hat Sculpted Cake', nameCn: '6寸墨镜花卷头派对帽异型蛋糕', descEn: 'Playful piped cream curls with sunglasses, mini bear and birthday hat (Fixed 6 inch).', descCn: '蓬松奶油花卷头搭配酷炫墨镜、小熊与派对帽（固定6英寸）。', prices: { [fixed6SizeLabel]: 70 } },
+            { id: 'sc-9', category: 'sculpted', isFixedSize: true, image: '106.jpg', nameEn: '6" Burger Piggy Sculpted Cake', nameCn: '6寸汉堡包小猪异型蛋糕', descEn: 'Creative burger-stacked cute piggy cake with party hat and custom message (Fixed 6 inch).', descCn: '创意汉堡层叠小猪造型，萌趣吸睛适合纪念日（固定6英寸）。', prices: { [fixed6SizeLabel]: 50 } },
+            { id: 'sc-10', category: 'sculpted', isFixedSize: true, image: '107.jpg', nameEn: '6" Floral Bunny Sculpted Cake', nameCn: '6寸花朵小兔捧花异型蛋糕', descEn: 'Adorable seated bunny sculpted in fresh cream with pink flowers and paws (Fixed 6 inch).', descCn: '呆萌坐姿小兔造型，头戴粉花并配有粉色肉垫（固定6英寸）。', prices: { [fixed6SizeLabel]: 42 } },
+            { id: 'sc-11', category: 'sculpted', isFixedSize: true, image: '110.jpg', nameEn: '6" Hooded Piggy Leaf Sculpted Cake', nameCn: '6寸绿叶围脖小猪帽异型蛋糕', descEn: 'Cute hooded piggy sculpted in cream with green scarf and leaf details (Fixed 6 inch).', descCn: '萌趣小猪头套造型搭配绿叶围脖细节（固定6英寸）。', prices: { [fixed6SizeLabel]: 50 } },
+            { id: 'sc-12', category: 'sculpted', isFixedSize: true, image: '111.jpg', nameEn: '6" Vintage Truck Sculpted Cake', nameCn: '6寸复古小货车异型蛋糕', descEn: 'Cream truck sculpted cake with blue cab, wheels and birthday banner (Fixed 6 inch).', descCn: '复古小货车造型蛋糕搭配蓝窗与生日插牌（固定6英寸）。', prices: { [fixed6SizeLabel]: 50 } },
+            { id: 'sc-13', category: 'sculpted', isFixedSize: true, image: '112.jpg', nameEn: '6" Sleepy Puppy Chocolate Drip Sculpted Cake', nameCn: '6寸慵懒小狗巧淋面异型蛋糕', descEn: 'Teal cream base with chocolate drip, coconut snow, stars and cute puppy topper (Fixed 6 inch).', descCn: '青绿抹面搭配巧克力淋面、椰蓉与萌犬造型（固定6英寸）。', prices: { [fixed6SizeLabel]: 48 } },
+            { id: 'sc-14', category: 'sculpted', isFixedSize: true, image: '113.jpg', nameEn: '6" Basketball Mascot Sculpted Cake', nameCn: '6寸篮球萌宠异型蛋糕', descEn: 'Orange basketball shaped cake with cute face, mini sneakers and flag (Fixed 6 inch).', descCn: '橙色篮球造型搭配萌系表情、运动鞋与小旗（固定6英寸）。', prices: { [fixed6SizeLabel]: 55 } },
+            { id: 'sc-15', category: 'sculpted', isFixedSize: true, image: '114.jpg', nameEn: '6" Pink Bear Face Sculpted Cake', nameCn: '6寸玫粉小熊异型蛋糕', descEn: 'Vibrant pink bear-ear cake with white snout and playful expression (Fixed 6 inch).', descCn: '活力玫粉色小熊耳朵造型搭配萌趣表情（固定6英寸）。', prices: { [fixed6SizeLabel]: 55 } },
+            { id: 'sc-16', category: 'sculpted', isFixedSize: true, image: '115.jpg', nameEn: '6" Winking Pink Piggy Sculpted Cake', nameCn: '6寸眨眼小粉猪异型蛋糕', descEn: 'Sweet pink piggy cake with winking eye, rosy cheeks and ruffled border (Fixed 6 inch).', descCn: '眨眼粉猪造型搭配腮红与复古花边（固定6英寸）。', prices: { [fixed6SizeLabel]: 48 } },
+            { id: 'sc-17', category: 'sculpted', isFixedSize: true, image: '116.jpg', nameEn: '6" Football Jersey 11 Sculpted Cake', nameCn: '6寸足球球衣11号异型蛋糕', descEn: 'Classic white and green football theme cake with ball topper and number 11 (Fixed 6 inch).', descCn: '经典白绿足球风造型搭配足球与数字11（固定6英寸）。', prices: { [fixed6SizeLabel]: 50 } },
+            { id: 'sc-18', category: 'sculpted', isFixedSize: true, image: '117.jpg', nameEn: '6" Textured Panda Meadow Sculpted Cake', nameCn: '6寸毛绒熊猫草地异型蛋糕', descEn: 'Textured cream panda sitting on a green meadow with cherries and mini flowers (Fixed 6 inch).', descCn: '质感奶油熊猫坐于草地之上，点缀樱桃与小花（固定6英寸）。', prices: { [fixed6SizeLabel]: 70 } },
+            { id: 'sc-19', category: 'sculpted', isFixedSize: true, image: '118.jpg', nameEn: '6" White Bunny Pearl Ruffle Sculpted Cake', nameCn: '6寸小白兔珍珠花边异型蛋糕', descEn: 'Elegant white cream cake topped with a bunny and pastel pearl ruffles (Fixed 6 inch).', descCn: '优雅纯白奶油蛋糕搭配小白兔与珍珠花边（固定6英寸）。', prices: { [fixed6SizeLabel]: 46 } },
+            { id: 'sc-20', category: 'sculpted', isFixedSize: true, image: '119.jpg', nameEn: '6" Red Heart Doodle Board Sculpted Cake', nameCn: '6寸红心小脸涂鸦底板异型蛋糕', descEn: 'Cute smiling red heart cake on a pastel board with line-art doodles (Fixed 6 inch).', descCn: '微笑红心造型搭配手绘简笔画涂鸦底板（固定6英寸）。', prices: { [fixed6SizeLabel]: 45 } },
 
             { id: 'sig-1', category: 'specialty', image: '3-1.jpg', nameEn: 'Matcha Cream Cake', nameCn: '宇治抹茶鲜奶油蛋糕', descEn: 'Uji premium matcha infused chiffon and rich silky green tea fresh cream.', descCn: '京都宇治顶级抹茶，茶香浓郁清苦回甘。', prices: getFruitPrices(45) },
             { id: 'sig-2', category: 'specialty', image: '3-2.jpg', nameEn: 'Caramel Cream Cake', nameCn: '海盐焦糖鲜奶油蛋糕', descEn: 'House-made salted buttery caramel layered with whipped fresh cream.', descCn: '自家熬制海盐焦糖酱，咸甜交织。', prices: getFruitPrices(45) },
@@ -907,6 +1042,7 @@
                 if (currentDetailProduct.isBoxCake) openBoxCakePage(currentDetailProduct.id, true);
                 else if (currentDetailProduct.isCrepeRoll) openCrepeRollPage(currentDetailProduct.id, true);
                 else if (currentDetailProduct.isSliceCake) openSliceCakePage(currentDetailProduct.id, true);
+                else if (currentDetailProduct.isOtherDessert) openOtherDessertPage(currentDetailProduct.id, true);
                 else openProductPage(currentDetailProduct.id, true);
             }
         }
@@ -1114,6 +1250,10 @@
                     minPrice = Math.min(...Object.values(b.prices));
                     badgeTag = isCn ? '1/8切块' : '1/8 Slice';
                     clickFn = `openSliceCakePage('${b.id}')`;
+                } else if (b.isOtherDessert) {
+                    minPrice = b.price;
+                    badgeTag = isCn ? b.badgeLabelCn : b.badgeLabelEn;
+                    clickFn = `openOtherDessertPage('${b.id}')`;
                 }
 
                 const card = document.createElement('div');
@@ -1141,6 +1281,67 @@
                 `;
                 grid.appendChild(card);
             });
+        }
+
+        function openOtherDessertPage(otherId, keepScroll = false) {
+            const b = boxedCakes.find(item => item.id === otherId);
+            if (!b || !b.isOtherDessert) return;
+            if (!keepScroll) lastScrollPosition = window.scrollY;
+            currentDetailProduct = b;
+
+            const isCn = currentLang === 'cn';
+            const name = isCn ? b.nameCn : b.nameEn;
+            const desc = isCn ? b.descCn : b.descEn;
+            const badge = isCn ? b.badgeLabelCn : b.badgeLabelEn;
+            const nextSundayStr = getNextSundayDateStr();
+
+            document.getElementById('detailPageContent').innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="aspect-square rounded-3xl overflow-hidden bg-rose-50 border border-rose-100 shadow-xs">
+                            <img src="${b.image}" alt="${name}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 text-center text-[11px] font-semibold text-stone-600">
+                            <div class="p-2.5 rounded-2xl bg-rose-50/60 border border-rose-100">${badge}</div>
+                            <div class="p-2.5 rounded-2xl bg-rose-50/60 border border-rose-100">Freshly Baked</div>
+                            <div class="p-2.5 rounded-2xl bg-rose-50/60 border border-rose-100">Display Only</div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="border-b border-stone-100 pb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-rose-600">mitangnotts Others Collection</span>
+                            <h1 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mt-1">${name}</h1>
+                            <p class="text-2xl font-serif font-bold text-rose-700 mt-2">£${b.price.toFixed(2)}</p>
+                            <p class="text-sm text-stone-600 mt-3 leading-relaxed">${desc}</p>
+                        </div>
+                        <div class="space-y-2.5">
+                            <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider">${isCn ? '规格 (Specification)' : 'Specification'}</label>
+                            <div class="p-4 rounded-2xl border-2 border-rose-700 bg-rose-50/60 flex items-center justify-between">
+                                <span class="text-sm font-bold text-stone-800">${badge}</span>
+                                <span class="text-base font-serif font-bold text-rose-700">£${b.price.toFixed(2)}</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2.5">
+                            <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider">${isCn ? '配送或自取日期（仅限每周日 Sun DD/MM/YYYY）' : 'Delivery or Collection Date (Sundays Only • DD/MM/YYYY)'}</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <select id="detailFulfillmentType" class="px-4 py-3 rounded-2xl border border-stone-300 bg-white text-sm font-medium text-stone-800 focus:ring-2 focus:ring-rose-500">
+                                    <option value="Nottingham Local Delivery">Nottingham Local Delivery</option>
+                                    <option value="Collection at West Bridgford (12pm-6pm)">Collection at West Bridgford</option>
+                                </select>
+                                <input type="text" id="detailDate" class="uk-date-picker px-4 py-3 rounded-2xl border border-stone-300 bg-white text-sm font-medium text-stone-800 focus:ring-2 focus:ring-rose-500" value="${nextSundayStr}">
+                            </div>
+                            <p class="text-[11px] text-rose-700 font-medium">${isCn ? '• 甜品配送/自取仅开放每周日。' : '• Delivery & collection for desserts are available on Sundays only.'}</p>
+                        </div>
+                        ${getDessertDisplayOnlySectionHtml(isCn)}
+                        ${getAccordionHtml(isCn)}
+                    </div>
+                </div>
+            `;
+
+            initSundayFlatpickr(nextSundayStr);
+            document.getElementById('catalogView').classList.add('hidden');
+            document.getElementById('productDetailView').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function openSliceCakePage(sliceId, keepScroll = false) {
