@@ -519,7 +519,8 @@
             };
         }
 
-        const priceNextDay = { '6 inch (2-4 pax)': 40, '8 inch (5-7 pax)': 50, '10 inch (8-10 pax)': 60 };
+        const priceFruitFirst = { '6 inch (2-4 pax)': 41, '8 inch (6-8 pax)': 51, '10 inch (10-12 pax)': 61 };
+        const priceNextDay = { '6 inch (2-4 pax)': 42, '8 inch (5-7 pax)': 55, '10 inch (8-10 pax)': 65 };
         const priceFixed4 = { '4 inch Fixed Design (1-2 pax)': 30 };
         const priceFixed5 = { '5 inch Fixed Design (3-5 pax)': 36 };
 
@@ -788,7 +789,7 @@
         ];
 
         const products = [
-            { id: 'fc-1', category: 'fruit', image: '1.jpg', nameEn: 'Mango Cake', nameCn: '芒果蛋糕', descEn: 'Fresh sweet mango layers with light dairy cream.', descCn: '新鲜香甜芒果搭配轻盈纯动物鲜奶油。', prices: getFruitPrices(41) },
+            { id: 'fc-1', category: 'fruit', image: '1.jpg', nameEn: 'Mango Cake', nameCn: '芒果蛋糕', descEn: 'Fresh sweet mango layers with light dairy cream.', descCn: '新鲜香甜芒果搭配轻盈纯动物鲜奶油。', prices: priceFruitFirst },
             { id: 'fc-2', category: 'fruit', image: '2.jpg', nameEn: 'Mixed Fruit Cake', nameCn: '缤纷水果蛋糕', descEn: 'Assorted fresh fruits nested in premium cream sponge.', descCn: '丰富缤纷时令鲜果搭配绵密奶油。', prices: getFruitPrices(55) },
             { id: 'fc-3', category: 'fruit', image: '3.jpg', nameEn: 'Blueberry Cake', nameCn: '蓝莓蛋糕', descEn: 'Juicy fresh blueberries layered with silky cream.', descCn: '新鲜饱满蓝莓果香与顺滑奶油。', prices: getFruitPrices(41) },
             { id: 'fc-4', category: 'fruit', image: '4.jpg', nameEn: 'Blueberry & Strawberry Cake', nameCn: '蓝莓蛋糕 草莓蛋糕', descEn: 'Fresh blueberries and strawberries with whipped cream.', descCn: '蓝莓与草莓双果搭配轻盈鲜奶油。', prices: getFruitPrices(45) },
@@ -843,6 +844,16 @@
 
             { id: 'sc-1', category: 'sculpted', image: '2-11.jpg', nameEn: '2D Cartoon Comic Style Cake', nameCn: '2D漫画风立体仿真蛋糕', descEn: 'Trendy comic book 2D outline design with party hat.', descCn: '时下流行二次元漫画风。', prices: priceNextDay },
             { id: 'sc-2', category: 'sculpted', image: '2-15.jpg', nameEn: 'Cute Little Piggy Cake', nameCn: '呆萌小粉猪立体造型蛋糕', descEn: 'Adorable piggy face design that brings an instant smile.', descCn: '萌趣小猪立体造型。', prices: priceNextDay },
+            { id: 'sc-3', category: 'sculpted', image: '100.jpg', nameEn: 'Spotted Seal Sculpted Cake', nameCn: '斑点海豹异型蛋糕', descEn: 'Textured grey cream seal sculpted with cute flippers and expression.', descCn: '灰白质感奶油塑形斑点海豹，憨态可掬。', prices: priceNextDay },
+            { id: 'sc-4', category: 'sculpted', image: '101.jpg', nameEn: 'Hello Kitty Sculpted Cake', nameCn: 'Hello Kitty 异型蛋糕', descEn: 'Classic white cream Hello Kitty face with red bow and yellow nose.', descCn: '经典白奶油 Hello Kitty 造型搭配红蝴蝶结与黄鼻头。', prices: priceNextDay },
+            { id: 'sc-5', category: 'sculpted', image: '102.jpg', nameEn: 'Pink Cottage & Couple Sculpted Cake', nameCn: '粉色小屋恋人异型蛋糕', descEn: 'Rich dark cocoa base with pink snowy top, mini house, pine trees & couple.', descCn: '深色可可底面搭配粉雪顶面、迷你小屋与恋人公仔。', prices: priceNextDay },
+            { id: 'sc-6', category: 'sculpted', image: '103.jpg', nameEn: 'Angel Wings 25th Sculpted Cake', nameCn: '天使翅膀 25 岁异型蛋糕', descEn: 'Cream cake topped with sculpted white wings, heart and bold "25" number.', descCn: '精致立体天使翅膀与爱心装饰，搭配醒目数字“25”。', prices: priceNextDay },
+            { id: 'sc-7', category: 'sculpted', image: '104.jpg', nameEn: 'White Ribbon Mini-Cake Sculpted Cake', nameCn: '白缎带迷你蛋糕造型异型蛋糕', descEn: 'Draped cream cloth cake topped with a mini tiered cake and white satin bows.', descCn: '垂坠奶油布艺造型搭配迷你双层蛋糕与白缎带蝴蝶结。', prices: priceNextDay },
+            { id: 'sc-8', category: 'sculpted', image: '105.jpg', nameEn: 'Sunglasses Curly-Hair Party Hat Sculpted Cake', nameCn: '墨镜花卷头派对帽异型蛋糕', descEn: 'Playful piped cream curls with sunglasses, mini bear and birthday hat.', descCn: '蓬松奶油花卷头搭配酷炫墨镜、小熊与派对帽。', prices: priceNextDay },
+            { id: 'sc-9', category: 'sculpted', image: '106.jpg', nameEn: 'Burger Piggy Sculpted Cake', nameCn: '汉堡包小猪异型蛋糕', descEn: 'Creative burger-stacked cute piggy cake with party hat and custom message.', descCn: '创意汉堡层叠小猪造型，萌趣吸睛适合纪念日。', prices: priceNextDay },
+            { id: 'sc-10', category: 'sculpted', image: '107.jpg', nameEn: 'Floral Bunny Sculpted Cake', nameCn: '花朵小兔捧花异型蛋糕', descEn: 'Adorable seated bunny sculpted in fresh cream with pink flowers and paws.', descCn: '呆萌坐姿小兔造型，头戴粉花并配有粉色肉垫。', prices: priceNextDay },
+            { id: 'sc-11', category: 'sculpted', image: '108.jpg', nameEn: 'Cute Red Apple Sculpted Cake', nameCn: '可爱红苹果异型蛋糕', descEn: 'Vibrant red apple-shaped cake with cute expression face and green leaf.', descCn: '饱满红苹果异型蛋糕搭配萌系表情与绿叶点缀。', prices: priceNextDay },
+            { id: 'sc-12', category: 'sculpted', image: '109.jpg', nameEn: 'Fluffy Sheep Sculpted Cake', nameCn: '绵羊小黑脸异型蛋糕', descEn: 'Fluffy white cream wool puffs with a cute black sheep face on green grass.', descCn: '蓬松奶油羊毛搭配可爱小黑脸羊与草地造型。', prices: priceNextDay },
 
             { id: 'sig-1', category: 'specialty', image: '3-1.jpg', nameEn: 'Matcha Cream Cake', nameCn: '宇治抹茶鲜奶油蛋糕', descEn: 'Uji premium matcha infused chiffon and rich silky green tea fresh cream.', descCn: '京都宇治顶级抹茶，茶香浓郁清苦回甘。', prices: getFruitPrices(45) },
             { id: 'sig-2', category: 'specialty', image: '3-2.jpg', nameEn: 'Caramel Cream Cake', nameCn: '海盐焦糖鲜奶油蛋糕', descEn: 'House-made salted buttery caramel layered with whipped fresh cream.', descCn: '自家熬制海盐焦糖酱，咸甜交织。', prices: getFruitPrices(45) },
